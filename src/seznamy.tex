@@ -9,22 +9,33 @@
 \renewcommand{\cftloftitlefont}{\PrvniNadpis\bfseries}
 \renewcommand{\cftlottitlefont}{\PrvniNadpis\bfseries}
 
-\listoffigures
+\chapter*{Seznam obrázků}
 \addcontentsline{toc}{chapter}{Seznam obrázků}
+Seznam obrázků se v práci objeví jen tehdy, když v práci bude pět a více obrázků. Aktualizaci seznamu provedete klávesou F9 po umístění kurzoru do textu Obsahu.
+
+\listoffigures
+
+\chapter*{Seznam tabulek}
+\addcontentsline{toc}{chapter}{Seznam tabulek}
+Seznam tabulek se v práci objeví jen tehdy, když v práci bude pět a více tabulek. Aktualizaci seznamu provedete klávesou F9 po umístění kurzoru do textu Obsahu.
 
 \listoftables
-\addcontentsline{toc}{chapter}{Seznam tabulek}
 
 \vfill
 
-\section*{\PrvniNadpis Seznam zkratek}
+\chapter*{Seznam zkratek}
 \addcontentsline{toc}{chapter}{Seznam zkratek}
+Seznam zkratek, které nejsou běžné, se zpravidla uvádí na samostatnou stránku.
 
 \begin{tabbing}
     \hspace{1.5cm} \= \hspace{3cm} \= \kill
-    CI/CD	\> Z anglického \enquote{Continuous Integration/Continuous Development} \\
-    VCS 	\> Z anglického \enquote{Version Control System}\\
-    PaaS	\> Z anglického \enquote{Platform as a Service}\\
+    ČR \> Česká republika \\
+    ČSN \> Česká státní norma \\
+    ČSÚ \> Český statistický úřad \\
+    IS \> Informační systém \\
+    NATO \> North Atlantic Treaty Organization \\
+    OSN \> Organizace spojených národů \\
+    VŠPJ \> Vysoká škola polytechnická Jihlava
 \end{tabbing}
 
 \thispagestyle{fancy}

@@ -1,135 +1,77 @@
-\chapter{Git}
+\chapter{Teoretická část / Metody / Obecná východiska / ...}
 \thispagestyle{fancy}
 
-Git, bezesporu nejhojněji využívaný VCS dnešní doby. Vytvořen v roce 2005 Linusem Torvaldsem za účelem vývoje kernelu operačního systému Linux (\cite{git2024_1}). Jeho unikátní vlastnosti ale zapříčinily hojné nasazení a využívání téměř ve všech odvětvích softwarového vývoje. Dostupnost gitu (jedná se o freeware a open-source nástroj), je umocněna velkým počtem hostovaných repozitářů, dostupných na hojném počtu platforem. Namátkou například GitHub, GitLab, Bitbucket, SourceForge aj. A~ačkoliv je možné git využívat lokálně, případně na privátním serveru, je právě způsob využívání skrze cloudové služby tím nejčastejčím scénářem užití.
+V závěrečné práci je možné používat nejvýše tři úrovně nadpisů. Pro kapitoly (první úroveň nadpisů) použijte styl Nadpis 1.
 
-\section{Terminologie}
-Pokusit se o~vysvětlení celého gitu je v~rozhsahu jedné práce bezesporu nemožné. Vždyť jen oficiální \enquote{strohá} dokumentace má stovky stránek! (\cite{git2024_2}) Nicméně bez uvedení alespoň základní terminologie běžné pro git se neobejdeme.
+Vlastní text kapitoly. Vlastní text kapitoly. Vlastní text kapitoly. Vlastní text kapitoly. Vlastní text kapitoly. Vlastní text kapitoly. Vlastní text kapitoly. Vlastní text kapitoly. Vlastní text kapitoly. Vlastní text kapitoly. Vlastní text kapitoly. Vlastní text kapitoly.
+
+\section{Obecná východiska výzkumu}
+
+Pro podkapitoly (druhá úroveň nadpisů) použijte styl Nadpis 2.
+
+Vlastní text kapitoly. Vlastní text kapitoly. Vlastní text kapitoly. Vlastní text kapitoly. Vlastní text kapitoly. Vlastní text kapitoly. Vlastní text kapitoly. Vlastní text kapitoly.
+
+\subsection{Relevantní literatura}
+
+Pro oddíly (třetí úroveň nadpisů) použijte styl Nadpis 3.
+
+Vlastní text kapitoly. Vlastní text kapitoly. Vlastní text kapitoly. Vlastní text kapitoly.
+
+\chapter{Výzkumná část / Praktická část / Hlavní část práce / ...}
+\thispagestyle{fancy}
+
+V této kapitole je ukázka toho, jak vkládat obrázky, tabulky a rovnice do dokumentu. Každý vložený objekt musí mít své označení a titulek, který obsahuje popis toho, co se v obrázku nebo tabulce nachází. Dále musí být uveden zdroj.
+
+\section{Obrázky a grafy}
+
+Číslo a název obrázku se uvádějí pod obrázkem. Zdroje, ze kterého obrázek pochází, se uvádějí pod názvem. Obrázky jsou centrované (zarovnané na střed).
+
+\begin{figure}[h]
+	\centering
+	% \includegraphics[width=0.5\textwidth]{src/img/example.png}
+    \vspace{2cm} % Placeholder for image
+	\caption{Název (popis) obrázku, příp. grafu}
+	\small\textit{Zdroj: Meško a kol. (2006, s. 15)}
+\end{figure}
+
+\section{Tabulky}
+
+Číslo a název tabulky se uvádějí nad tabulkou. Zdroje dat, které se v tabulce vyskytují, se uvádějí pod tabulkou. Tabulky jsou centrované (zarovnané na střed). Ohraničení tabulky je ponecháno na volbě autora.
 
 \begin{table}[h]
 	\centering
-		\caption{\small{\textbf{Git, základní pojmy.}}}
-		\label{git_terms}
-		\vspace{0.2mm}
-		\begin{tabularx}{\textwidth}{|>{\raggedright}p{.12\textwidth}|X|X|}
+		\caption{Název (popis) tabulky}
+		\begin{tabular}{|l|l|l|}
 			\hline
-			\multicolumn{2}{|c|}{Základní terminologie}\\
+			Styl & Písmo & Velikost \\
 			\hline
-			Repository				& Uložiště kde se nachází projekt a jeho verze (může být lokální nebo vzdálené) \\
-			Commit					& Snapshot (snímek) vytvořený nad momentálním stavem projektu v repozitáři \\
-			Branch					& Paralelní verze repozitáře, která umožňuje více uživatelům simultánní práci \\
-			Merge					& Proces sjednocení změn z paralelní větve do hlavního repozitáře \\
-			Clone					& Proces okopírování si zdrojového repozitáře (vetšinou ze vzdáleného uložiště) \\
-			Pull					& Stáhnutí posledních změn \\
-			Push					& Odeslání svých lokálních změn \\
+			Nadpis 1 & Calibri Light & 18 \\
+			Nadpis 2 & Calibri Light & 15 \\
 			\hline
-		\end{tabularx}
-		\small\textit{Zdroj: vytvořeno autorem.}
+		\end{tabular}
+		\small\textit{Zdroj: vlastní zpracování dle Borůvková, Dvořáková a Vojáčková (2021)}
 \end{table}
 
-\section{GitHub}
-Častou chybou je záměna slov git a~GitHub (případně GitLab aj.). Je důležité si uvědomit, že tyto dva termíny nejsou ekvivalentní. Pokud mluvíme o~\enquote{gitu} máme tím namysli VCS, které slouží k~lokálnímu verzování a~istorii změn. Ostatní zaměnitelné termíny jako například \enquote{GitHub} pak označují cloudovou službu, která poskytuje svým uživatelům vzdáleně hostované repozitáře, na kterých mohou spolupracovat s~jinými členy týmu, prostřednictvím lokální kopie gitu, a~jsou jim poskutnuty další přidružené služby, např. Github Actions, GitHub CLI nebo proprietární GitHub aplikace.
+\section{Rovnice, vzorce a funkce}
 
-Tyto další služby většinou slouží jako různé variace toho stejného, tedy jako prostředníci umožňující komunikaci se serverem GitHubu a~repozitáři na něm uloženými. Např. pro GitHub existují tři varianty, jak může uživatel verzovacího softwaru využít, a~to Prostřednictvím prohlížeče, skrze aplikaci, a~nebo za použití příkazové řádky a balíčku git, s~nebo bez sady maker GitHub CLI (\cite{github2024_1}).
+Rovnice uvedené v práci jsou napsané na samostatném řádku, centrované a číslo rovnice uvedené v závorce je zarovnáno vpravo.
 
-\subsection{GitHub Actions}
-Jako doplněk VCS služeb se na platformy typu GitHub dostávájí další zajímavé nástroje, které jsou s~gitem velmi dobře integrované. Příkladem mohou být GitHub Actions (\cite{github2024_2}), které za pomocí automatizace dokáží vykonávat různé stěžejní úkony pro kontinuální integraci a~kontinuální vývoj (CI/CD), který je dnes na mnoha pracovištích prakticky nezbytný (\cite{RedHat_1}). Převážně pak pro ty, které nabízí své produkty ve formátu PaaS (\cite{Olsen2024}).
+\begin{equation}
+(x+a)^n = \sum_{k=0}^{n} \binom{n}{k} x^k a^{n-k}
+\end{equation}
 
-Pro účely demonstrace práce s~gitem a~GitHubem přikládám vytvořený GitHub Actions YAML soubor (Příloha~\ref{code:example}) který se obstarával spuštění GitHub akcí a~kompilaci této práce. Výsledek pak zanášel spět do repozitáře (automaticky). Obdobně lze napsat workflow například pro kompilované jazyky (čehož programátoři hojně využívají), a~je možné je tímto způsobem otestovat kód před vložením do repozitáře. Commit může být násladně odmítnut na základě neprocházejícíh testů a jiných parametrů. Tímto způsobem se udržuje vždy konzistentní a~fungující kód.
+\section{Výčty a seznamy}
 
-Nasledující diagram zobrazuje jak jsem při tvorbě této práce s gitem a GitHubem postupoval
+Vlastní text kapitoly. Uvození výčtu:
+\begin{itemize}
+    \item jedno slovo,
+    \item druhé slovo,
+    \item nebo i více slov,
+    \item toto je poslední.
+\end{itemize}
 
-\begin{figure}[h]
-	\centering
-	\fontsize{7}{9}\selectfont
-	\textbf{
-		\includesvg[scale=0.8, inkscapelatex=true]{src/img/diagram.svg}
-	}
-	\caption{\small{\textbf{Git, workflow diagram}}}
-	\label{onii1}
-	\small\textit{Zdroj: vytvořeno autorem.}
-\end{figure}
+\section{Citace}
 
-\subsection{Příklady práce s gitem}
-Úplný základ gitu se točí kolem následujícíh dvou sekvencí příkazů. spouští se v přikázové řádce, v kořenovém adresáři, vyklonovaného repozitáře.
-
-\lstset{
-	basicstyle=\ttfamily\small,  % Set font to monospaced and size to small
-	numberstyle=\tiny\color{gray}, % Line number style
-	stepnumber=1,               % Number every line
-	breaklines=true,            % Break long lines
-	showstringspaces=false,     % Hide spaces in strings
-	aboveskip=0mm,
-	belowskip=0mm 
-}
-
-\begin{multicols}{2}
-	\begin{lstlisting}
-#Stáhnuti posledních zmen
-
-git add --all
-git commit
-git push
-	\end{lstlisting}
-
-	\begin{lstlisting}
-#Odesláni lokálních zmen
-
-git fetch origin
-git pull
-	\end{lstlisting}
-
-\end{multicols}
-
-Klonování repozitáře je pak věc vcelku triviální.
-\\
-\begin{lstlisting}
-git clone git@github.com:CalaVSPJ/US_2024_SemestralWork.git #Tato práce
-\end{lstlisting}
-\bigskip
-Následně bych chtěl ještě doplnit pár výstřižků, které ukazují některé zajímavé části uživatelského rozhraní při přístupu na GitHub skrze internetový prohlížeč.
-\pagebreak
-
-Takto vypadá domovský adresář repozitáře, ve kterém jsou zvýrazněny menu pro výběr větve a~sekce s~releasy. Obrovská čast je pak věnována adresářové struktuře daného repozitáře.
-
-\begin{figure}[h]
-	\centering
-	\scalebox{0.29}{\includegraphics{src/img/screen_1.png}}
-	\caption{\small{\textbf{GitHub, domovský adresář repozitáře}}}
-	\small\textit{Zdroj: vytvořeno autorem.}
-	\label{GitHub 1}
-\end{figure}
-
-V žáložce \enquote{Actions} můžeme najít jak skončené, tak právě probíhající akce, které beží nad repozitářem. Většinou se jedná o akci kterou vyvoval poslední commit. Nicméně můžou nezávisle na vstupu uživatele probíhat i jiné automatizované procesy. Akci je možné si otevřít a prohlédnou log, který je zde dispozici. V tomto případě se jedná o jednu z mých kompilací tohoto dokumentu.
-
-\begin{figure}[h]
-	\centering
-	\scalebox{0.36}{\includegraphics{src/img/screen_2.png}}
-	\caption{\small{\textbf{GitHub, záložka actions}}}
-	\small\textit{Zdroj: vytvořeno autorem.}
-	\label{GitHub 2}
-\end{figure}
-
-\pagebreak
-
-Na tomto výstřižku vidíme jak seznam mých, tak cizích Commitů. Ačkoliv jsou commity převážně mé, jde zde vidět, že GitHub Actions přidávají do mého repozitáře automaticky zkompilované pdf.
-
-\begin{figure}[h]
-	\centering
-	\scalebox{0.26}{\includegraphics{src/img/screen_3.png}}
-	\caption{\small{\textbf{GitHub, seznam commitů}}}
-	\small\textit{Zdroj: vytvořeno autorem.}
-	\label{GitHub 3}
-\end{figure}
-
-Práce s gitem má samozřejmě svá úskalí. Není vždy úplně přehledná. Nicméně díky dostupným uživatelským rozhraním, které jsou dnes k~dispozici, je vše poměrně snadné. Další výhodou pak je, že díky verzování je téměř nemožné jakékoliv změny ztratit nebo smazat soubory, které by uživateli mohly chybět. Další poměrně dobrá vlastnost GitHubu je, že je možné ukládat nejed zdrojový kód, ale dokonce i~celé verze zkompilovaných souborů, obrázky, videa, vlastně cokoliv. Samozřejmě i~zde existuje omezení maximální velikosti celkového repozitáře.
-
-\begin{figure}[h]
-	\centering
-	\scalebox{0.30}{\includegraphics{src/img/screen_4.png}}
-	\caption{\small{\textbf{GitHub, vygenerované verze tohoto dokumentu}}}
-	\small\textit{Zdroj: vytvořeno autorem.}
-	\label{GitHub 3}
-\end{figure}
+Na VŠPJ je povolen pouze harvardský styl citací literatury. Ukázky nejčastěji používaných citací lze najít v dokumentu Jak psát práce na VŠPJ: Typografická pravidla pro studenty VŠPJ (Borůvková a kol., 2021). Podrobný návod, jak citovat literaturu podle nové normy, s řadou českých příkladů citování literatury, najdete na stránkách Nová citační norma ČSN ISO 690:2011 – Bibliografické citace.
 
 \pagebreak

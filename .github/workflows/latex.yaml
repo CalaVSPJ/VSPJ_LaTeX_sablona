@@ -46,7 +46,7 @@ jobs:
         git config --global user.name "github-actions[bot]"  # Nastavení identity
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         timestamp=$(date "+%d-%m-%Y_%H%M")                  # Timestamp pro verzi
-        cp output/semestralni_prace.pdf versions/semestralni_prace_"${timestamp}".pdf  # Kopie
+        cp output/semestralni_prace.pdf Verze/semestralni_prace_"${timestamp}".pdf  # Kopie
         git add Verze/semestralni_prace_"${timestamp}".pdf  # Přidání do git
         git commit -m "Automated PDF compilation and deployment [skip ci]"  # Commit
         git push origin main  # Push zpět do main

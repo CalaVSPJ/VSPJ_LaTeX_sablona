@@ -32,12 +32,14 @@
 
 % Promenne pouzite pro titulni stranku
 \newcommand{\varUniversity}{VYSOKÁ ŠKOLA POLYTECHNICKÁ JIHLAVA}			% Jmeno skoly
-\newcommand{\varCircle}{Aplikovaná Informatika \textendash\ kombi}		% Obor
-\newcommand{\varThesisName}{VERZOVACÍ SOFTWARE \textendash\ GITHUB}		% Nazev prace
+\newcommand{\varProgram}{Studijní program}								% Studijni program
+\newcommand{\varThesisName}{NÁZEV PRÁCE}								% Nazev prace
+\newcommand{\varThesisSubName}{Podnázev práce (volitelně)}				% Podnazev prace
 
-\newcommand{\varAuthor}{Autor}									% Autor
-\newcommand{\varClass}{Předmět}							% Predmet
-\newcommand{\varTutor}{Vyučující}						% Vyucujici
+\newcommand{\varAuthor}{Jméno Příjmení}									% Autor
+\newcommand{\varTutor}{titul Jméno Příjmení, titul}						% Vedouci / Vyucujici
+\newcommand{\varCity}{Jihlava}											% Mesto
+\newcommand{\varYear}{2026}												% Rok
 
 % Formatovani nadpisu
 \newcommand{\PrvniNadpis}{\fontsize{18}{22}\selectfont}
@@ -59,10 +61,10 @@
 
 % Formatovani zahlavi a zapati
 \renewcommand{\headrulewidth}{0pt}
-\fancyhead[L]{\textcolor[rgb]{0.5,0.5,0.5}{Verzovací software \textendash\ GitHub}}
-\fancyhead[R]{\textcolor[rgb]{0.5,0.5,0.5}{Vysoká škola polytechnická Jihlava}}
-\fancyfoot[C]{\thepage\ (Celkem \pageref{LastPage})}
-\fancyfoot[R]{\textcolor[rgb]{0.5,0.5,0.5}{\varAuthor\ \the\day.\thinspace\the\month.\thinspace\the\year\ v1.1}}
+\fancyhead[L]{\textcolor[rgb]{0.5,0.5,0.5}{\varUniversity}}
+\fancyhead[R]{}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{}
 \pagestyle{fancy}
 
 % Nastaveni ceskych uvozovek

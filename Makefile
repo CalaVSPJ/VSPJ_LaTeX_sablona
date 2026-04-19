@@ -25,7 +25,7 @@ build:
 			latexmk -xelatex -interaction=nonstopmode --shell-escape \
 			-output-directory=$(TEMP_DIR) \
 			$(SRC_DIR)/$(MAIN_FILE) && \
-			cp $(TEMP_DIR)/$${MAIN_FILE%.tex}.pdf $(OUTPUT_DIR)/semestralni_prace_$$(date +%Y-%m-%d_%H-%M).pdf \
+			cp $(TEMP_DIR)/$(MAIN_FILE:.tex=.pdf) $(OUTPUT_DIR)/semestralni_prace_$$(date +%Y-%m-%d_%H-%M).pdf \
 		"
 	rm -rf $(TEMP_DIR)
 	@echo "Build successful. PDF is in $(OUTPUT_DIR)/"

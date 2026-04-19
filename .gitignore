@@ -1,0 +1,19 @@
+# LaTeX build artifacts
+output/
+.tmp_build/
+
+# Common LaTeX temporary files (if built outside Docker)
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*.xdv

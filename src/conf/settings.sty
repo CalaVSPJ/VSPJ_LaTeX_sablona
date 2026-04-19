@@ -1,19 +1,17 @@
 % Nastaveni vlastniho fontu
-\usepackage{fontspec}													% Balicek pro vlastni fonty
-\setmainfont{Carlito} 													% Nastaveni Calibri (Linuxovy ekvivalent) jako hlavni
+\usepackage{fontspec}
+\setmainfont{Carlito} 
 \usepackage{multicol}
 
-% Pouzite balicky
-%\usepackage[utf8]{inputenc}											% Nemel by byt potreba na systemech s defaultnim UTF8
-\usepackage[czech]{babel}												% Nastaveni ceskeho jazyka
+\usepackage[czech]{babel}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{fancyhdr}
-\usepackage{hyperref}													% Textove odkazy
+\usepackage{hyperref}
 \usepackage{geometry}
-\usepackage[useregional]{datetime2}										% Regionalni datum, cas
-\usepackage{tocloft}													% Redefinice obsahu
-\usepackage{titlesec}													% Redefinice nadpisu
+\usepackage[useregional]{datetime2}
+\usepackage{tocloft}
+\usepackage{titlesec}
 \usepackage{lastpage}
 \usepackage{xcolor}
 \definecolor{infoBlue}{RGB}{91,155,213} 
@@ -24,13 +22,14 @@
 \usepackage{setspace}
 \usepackage{svg}
 \usepackage{enumitem}
-\setlist{nosep, itemsep=2pt, parsep=0pt, leftmargin=*}
 
+% Extreme tightening for lists (DOCX style)
+\setlist{nosep, itemsep=0pt, parsep=0pt, partopsep=0pt, topsep=2pt, leftmargin=2em}
 
 % Format stranky
-\setlength{\parindent}{0pt}												% Odrazka na zacatku noveho odstavce
-\setlength{\parskip}{6pt}												% Radkovani za koncem odstavce (DOCX after=120 -> 6pt)
-\linespread{1.15}														% Radkovani (DOCX line=276 -> 1.15)
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\linespread{1.15}
 \geometry{
     a4paper,
     top=2.5cm,
@@ -42,37 +41,36 @@
     footskip=0.75cm
 }
 
-% Promenne pouzite pro titulni stranku
-\newcommand{\varUniversity}{VYSOKÁ ŠKOLA POLYTECHNICKÁ JIHLAVA}			% Jmeno skoly
-\newcommand{\varProgram}{Studijní program}								% Studijni program
-\newcommand{\varThesisType}{Bakalářská / Diplomová práce}               % Typ prace
-\newcommand{\varThesisName}{NÁZEV PRÁCE}								% Nazev prace
-\newcommand{\varThesisSubName}{Podnázev práce (volitelně)}				% Podnazev prace
+% Promenne
+\newcommand{\varUniversity}{VYSOKÁ ŠKOLA POLYTECHNICKÁ JIHLAVA}
+\newcommand{\varProgram}{Studijní program}
+\newcommand{\varThesisType}{Bakalářská práce} % Uživatelem měnitelné: Bakalářská / Diplomová / Seminární
+\newcommand{\varThesisName}{NÁZEV PRÁCE}
+\newcommand{\varThesisSubName}{} % Volitelný podnázev
 
-\newcommand{\varAuthor}{Jméno Příjmení}									% Autor
-\newcommand{\varTutor}{titul Jméno Příjmení, titul}						% Vedouci / Vyucujici
-\newcommand{\varCity}{Jihlava}											% Mesto
-\newcommand{\varYear}{2026}												% Rok
+\newcommand{\varAuthor}{Jméno Příjmení}
+\newcommand{\varTutor}{titul Jméno Příjmení, titul}
+\newcommand{\varCity}{Jihlava}
+\newcommand{\varYear}{2026}
 
 % Formatovani nadpisu
-\newcommand{\PrvniNadpis}{\fontsize{18}{22}\selectfont}                 % DOCX sz=36 -> 18pt
-\newcommand{\DruhyNadpis}{\fontsize{15}{18}\selectfont}                 % DOCX sz=30 -> 15pt
-\newcommand{\TretiNadpis}{\fontsize{12}{15}\selectfont}                 % DOCX sz=24 -> 12pt
+\newcommand{\PrvniNadpis}{\fontsize{18}{22}\selectfont}
+\newcommand{\DruhyNadpis}{\fontsize{15}{18}\selectfont}
+\newcommand{\TretiNadpis}{\fontsize{12}{15}\selectfont}
 
-\titleformat{\chapter}[block]
-  {\normalfont\PrvniNadpis\bfseries}									% format nazvu kapitoly
-  {\thechapter}{0.5em}{}												% format cislovani kapitoly
-  \titlespacing*{\chapter}{0pt}{18pt}{6pt}
-\titleformat{\section}[block]
-  {\normalfont\DruhyNadpis\bfseries}									% format nazvu sekce
-  {\thesection}{0.5em}{}												% format cislovani sekce
-  \titlespacing*{\section}{0pt}{18pt}{6pt}
-\titleformat{\subsection}[block]
-  {\normalfont\TretiNadpis\bfseries}									% format nazvu subsekce
-  {\thesubsection}{0.5em}{}												% format cislovani subsekce
-  \titlespacing*{\subsection}{0pt}{18pt}{6pt}
+\titleformat{\chapter}[block]{\normalfont\PrvniNadpis\bfseries}{\thechapter}{0.5em}{}
+\titlespacing*{\chapter}{0pt}{12pt}{6pt}
+\titleformat{\section}[block]{\normalfont\DruhyNadpis\bfseries}{\thesection}{0.5em}{}
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+\titleformat{\subsection}[block]{\normalfont\TretiNadpis\bfseries}{\thesubsection}{0.5em}{}
+\titlespacing*{\subsection}{0pt}{12pt}{6pt}
 
-% Formatovani zahlavi a zapati
+% TOC Spacing (Tight)
+\setlength{\cftbeforechapskip}{2pt}
+\setlength{\cftbeforesecskip}{0pt}
+\setlength{\cftbeforesubsecskip}{0pt}
+
+% Headers
 \renewcommand{\headrulewidth}{0pt}
 \fancyhead[L]{}
 \fancyhead[R]{\textcolor[rgb]{0.5,0.5,0.5}{\textit{Vysoká škola polytechnická Jihlava}}}
@@ -80,36 +78,18 @@
 \fancyfoot[R]{\thepage}
 \pagestyle{fancy}
 
-% Numbering of figures and tables (global numbering Obr. 1 instead of Obr. 1.1)
 \usepackage{caption}
-\captionsetup[figure]{labelsep=colon, font={small,bf}}
-\captionsetup[table]{labelsep=colon, position=top, font={small,bf}}
+\captionsetup[figure]{labelsep=colon, font={small,bf}, skip=6pt}
+\captionsetup[table]{labelsep=colon, position=top, font={small,bf}, skip=6pt}
 \counterwithout{figure}{chapter}
 \counterwithout{table}{chapter}
 \renewcommand{\figurename}{Obr.}
 \renewcommand{\tablename}{Tab.}
 
-% Nastaveni ceskych uvozovek
 \DeclareQuoteStyle{czech}{„}{“}{‚}{‘}
-
-% Pridani zdroje referenci a formatovani referenci
-% https://www.citace.zcu.cz/caste-chyby.html
 \setlength{\bibhang}{0pt}
 \DeclareFieldFormat{url}{Dostupné z: \url{#1}}
-\renewbibmacro*{note+url}{ 
-  \newunit\newblock
-  \printfield{note}
-  \newunit\newblock
-  \printfield{url}
-  \newunit\newblock
-  \printfield{organization}
-}
+\renewbibmacro*{note+url}{\newunit\newblock\printfield{note}\newunit\newblock\printfield{url}\newunit\newblock\printfield{organization}}
 \AtBeginBibliography{\renewcommand*{\mkbibnamefamily}[1]{\MakeUppercase{#1}}}
-\newcounter{bibitemcounter}
-\setcounter{bibitemcounter}{0}
-\renewbibmacro*{begentry}{%
-  \stepcounter{bibitemcounter}%
-  \textbf{\thebibitemcounter.}\space
-}
 
 \addbibresource{src/references.bib}

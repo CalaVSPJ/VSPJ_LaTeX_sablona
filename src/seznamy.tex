@@ -1,8 +1,8 @@
-\setlength{\cftbeforeloftitleskip}{0pt}		% Before List of Figures title
-\setlength{\cftafterloftitleskip}{10pt}		% After List of Figures title
+\setlength{\cftbeforeloftitleskip}{0pt}
+\setlength{\cftafterloftitleskip}{10pt}
 \setlength{\cftfigindent}{0pt}
-\setlength{\cftbeforelottitleskip}{12pt}	% Before List of Tables title
-\setlength{\cftafterlottitleskip}{20pt}		% After List of Tables title
+\setlength{\cftbeforelottitleskip}{12pt}
+\setlength{\cftafterlottitleskip}{20pt}
 \setlength{\cfttabindent}{0pt}
 \setlength{\cftbeforetabskip}{-10pt}
 
@@ -11,18 +11,22 @@
 
 \chapter*{Seznam obrázků}
 \addcontentsline{toc}{chapter}{Seznam obrázků}
+\thispagestyle{fancy}
+\fancyfoot[R]{\thepage}
 
 {\color{infoBlue}
-Seznam obrázků se v práci objeví jen tehdy, když v práci bude pět a více obrázků. Aktualizaci seznamu provedete klávesou F9 po umístění kurzoru do textu Obsahu.
+Seznam obrázků se v práci objeví za obsahem, když v práci bude pět a více obrázků. Aktualizaci seznamu provedete klávesou F9 po umístění kurzoru do textu Obsahu.
 }
 
 \listoffigures
 
 \chapter*{Seznam tabulek}
 \addcontentsline{toc}{chapter}{Seznam tabulek}
+\thispagestyle{fancy}
+\fancyfoot[R]{\thepage}
 
 {\color{infoBlue}
-Seznam tabulek se v práci objeví jen tehdy, když v práci bude pět a více tabulek. Aktualizaci seznamu provedete klávesou F9 po umístění kurzoru do textu Obsahu.
+Seznam tabulek se v práci objeví zde, když v práci bude pět a více tabulek. Aktualizaci seznamu provedete klávesou F9 po umístění kurzoru do textu Obsahu.
 }
 
 \listoftables
@@ -31,6 +35,8 @@ Seznam tabulek se v práci objeví jen tehdy, když v práci bude pět a více t
 
 \chapter*{Seznam zkratek}
 \addcontentsline{toc}{chapter}{Seznam zkratek}
+\thispagestyle{fancy}
+\fancyfoot[R]{\thepage}
 
 {\color{infoBlue}
 Seznam zkratek, které nejsou běžné, se zpravidla uvádí na samostatnou stránku.
@@ -46,7 +52,5 @@ Seznam zkratek, které nejsou běžné, se zpravidla uvádí na samostatnou str�
     OSN \> Organizace spojených národů \\
     VŠPJ \> Vysoká škola polytechnická Jihlava
 \end{tabbing}
-
-\thispagestyle{fancy}
 
 \pagebreak

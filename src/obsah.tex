@@ -1,7 +1,7 @@
 % Nastaveni radkovani tabulky
 \setlength{\cftbeforetoctitleskip}{0pt}
 \setlength{\cftaftertoctitleskip}{10pt}
-\setlength{\cftbeforechapskip}{0pt}
+\setlength{\cftbeforechapskip}{3pt} % Slight adjustment for matching DOCX feel
 \setlength{\cftbeforesecskip}{0pt}
 \setlength{\cftbeforesubsecskip}{0pt}
 \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
@@ -13,6 +13,7 @@
 
 \chapter*{Obsah}
 \thispagestyle{fancy}
+\fancyfoot[R]{\thepage}
 
 {\color{infoBlue}
 Do Obsahu jsou zahrnuty všechny seznamy, kapitoly a podkapitoly, přílohová část; Obsah neobsahuje „sám sebe“ a první strany práce před samotným obsahem. V obsahu zobrazte pouze nadpisy prvních dvou úrovní.

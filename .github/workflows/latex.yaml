@@ -1,27 +1,27 @@
-name: LaTeX Build  # Název workflow
+name: LaTeX Build                                                                       # Název workflow
 
 on:
   push:
     branches:
-      - main  # Spustí se při pushi do main
+      - main                                                                            # Spustí se při pushi do main
     paths:
-      - 'src/**'   # pouze změny ve složce src
+      - 'src/**'                                                                        # pouze změny ve složce src
   pull_request:
     branches:
-      - main  # Spustí se při PR do main
+      - main                                                                            # Spustí se při PR do main
     paths:
-      - 'src/**'   # pouze změny ve složce src
+      - 'src/**'                                                                        # pouze změny ve složce src
 
 permissions:
-  contents: write  # Potřebné pro pushnutí PDF zpět do repo
+  contents: write                                                                       # Potřebné pro pushnutí PDF zpět do repo
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # GitHub runner
+    runs-on: ubuntu-latest                                                              # GitHub runner
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4  # Stáhne repo do runneru
+      uses: actions/checkout@v4                                                         # Stáhne repo do runneru
 
     - name: Compile LaTeX with latexmk
       run: |
@@ -38,15 +38,16 @@ jobs:
         fc-cache -f &&
         latexmk -xelatex -interaction=nonstopmode --shell-escape \
         -output-directory=/workspace/output \
-        /workspace/src/semestralni_prace.tex
+        /workspace/src/prace.tex
         "
 
     - name: Commit and push compiled PDF
+      if: github.event_name == 'push'
       run: |
-        git config --global user.name "github-actions[bot]"  # Nastavení identity
+        git config --global user.name "github-actions[bot]"                            # Nastavení identity
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        timestamp=$(date "+%d-%m-%Y_%H%M")                  # Timestamp pro verzi
-        cp output/semestralni_prace.pdf Verze/semestralni_prace_"${timestamp}".pdf  # Kopie
-        git add Verze/semestralni_prace_"${timestamp}".pdf  # Přidání do git
-        git commit -m "Automated PDF compilation and deployment [skip ci]"  # Commit
-        git push origin main  # Push zpět do main
+        timestamp=$(TZ="Europe/Prague" date "+%d-%m-%Y_%H%M")                          # Timestamp pro verzi
+        cp output/prace.pdf Verze/prace_"${timestamp}".pdf                             # Kopie
+        git add Verze/prace_"${timestamp}".pdf                                         # Přidání do git
+        git commit -m "Automated PDF compilation and deployment [skip ci]"             # Commit
+        git push origin main                                                           # Push zpět do main

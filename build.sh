@@ -8,7 +8,7 @@ OUTPUT_DIR=${1:-output}
 TEMP_DIR=".tmp_build"
 LOG_DIR="$OUTPUT_DIR/logs"
 TIMESTAMP=$(date +%Y-%m-%d_%H-%M)
-PDF_NAME="semestralni_prace_$TIMESTAMP.pdf"
+PDF_NAME="prace_$TIMESTAMP.pdf"
 
 # Colors for output
 GREEN='\033[0;32m'
@@ -35,7 +35,7 @@ $DOCKER run --rm \
             fc-cache -f && \
             latexmk -xelatex -interaction=nonstopmode --shell-escape \
             -output-directory=$TEMP_DIR \
-            src/semestralni_prace.tex
+            src/prace.tex
         ) > /workspace/$LOG_DIR/build.log 2>&1
     "
 
@@ -50,7 +50,7 @@ else
 fi
 
 echo -n "2/2 Cleaning up and finalizing... "
-cp "$TEMP_DIR/semestralni_prace.pdf" "$OUTPUT_DIR/$PDF_NAME" 2>/dev/null
+cp "$TEMP_DIR/prace.pdf" "$OUTPUT_DIR/$PDF_NAME" 2>/dev/null
 rm -rf "$TEMP_DIR"
 echo -e "${GREEN}DONE${NC}"
 

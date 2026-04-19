@@ -1,6 +1,6 @@
 # Zdrojové soubory práce
 
-Každá část dokumentu má vlastní soubor. Najdi ten správný a piš – strukturu za tebe řídí `semestralni_prace.tex`.
+Každá část dokumentu má vlastní soubor. Najdi ten správný a piš – strukturu za tebe řídí `prace.tex`.
 
 ## Co upravovat
 
@@ -19,7 +19,7 @@ Každá část dokumentu má vlastní soubor. Najdi ten správný a piš – str
 
 | Soubor | Proč |
 |---|---|
-| `semestralni_prace.tex` | Řídí pořadí kapitol |
+| `prace.tex` | Řídí pořadí kapitol |
 | `title_page.tex` | Titulní strana – data se berou z `conf/settings.sty` |
 | `prohlaseni.tex` | Text je daný předpisem, datum se doplní automaticky |
 | `obsah.tex` | Generuje se automaticky z nadpisů v textu |

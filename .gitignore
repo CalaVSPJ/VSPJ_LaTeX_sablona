@@ -1,6 +1,7 @@
 # LaTeX build artifacts
 output/
 .tmp_build/
+svg-inkscape/
 
 # Common LaTeX temporary files (if built outside Docker)
 *.aux

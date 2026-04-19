@@ -1,21 +1,17 @@
-% Nastaveni radkovani tabulky
+% Nastavení pro extrémně těsný Obsah
 \setcounter{tocdepth}{1}
 
 \chapter*{Obsah}
 \thispagestyle{fancy}
 \fancyfoot[R]{\thepage}
 
-\begin{spacing}{1.0} % Instructions can be normal spacing
+\begin{spacing}{0.1}
 {\color{infoBlue}
 Do Obsahu jsou zahrnuty všechny seznamy, kapitoly a podkapitoly, přílohová část; Obsah neobsahuje „sám sebe“ a první strany práce před samotným obsahem. V obsahu zobrazte pouze nadpisy prvních dvou úrovní.
 
 Aktualizaci obsahu provedete klávesu F9 po umístění kurzoru do textu Obsahu.
 }
-\end{spacing}
 
-\vspace{0.3cm}
-
-\begin{spacing}{0.1} % Force individual lines to touch
 \makeatletter
 \@starttoc{toc}
 \makeatother

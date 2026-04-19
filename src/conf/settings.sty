@@ -16,6 +16,7 @@
 \usepackage{titlesec}													% Redefinice nadpisu
 \usepackage{lastpage}
 \usepackage{xcolor}
+\definecolor{infoBlue}{RGB}{91,155,213} 
 \usepackage{csquotes}
 \usepackage{tabularx}
 \usepackage[style=authoryear, backend=biber]{biblatex}
@@ -77,6 +78,9 @@
 \pagestyle{fancy}
 
 % Numbering of figures and tables (global numbering Obr. 1 instead of Obr. 1.1)
+\usepackage{caption}
+\captionsetup[figure]{labelsep=colon}
+\captionsetup[table]{labelsep=colon, position=top}
 \counterwithout{figure}{chapter}
 \counterwithout{table}{chapter}
 \renewcommand{\figurename}{Obr.}

@@ -1,19 +1,29 @@
 % Nastaveni radkovani tabulky
-\setlength{\cftbeforetoctitleskip}{0pt}                 % Mezera od zacatku stranky a pred nadpisem Obsah
-\setlength{\cftaftertoctitleskip}{10pt}                 % Mezera od nadpisu Obsah a samotnym obsahem
-\setlength{\cftbeforechapskip}{0pt}                     % Radkovani pred kapitolou
-\setlength{\cftbeforesecskip}{0pt}                      % Radkovani pred sekci
-\setlength{\cftbeforesubsecskip}{0pt}                   % Radkovani pred subsekci
-\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}  % Navadejici teckovana linky i pro kapitoly
-\renewcommand{\cfttoctitlefont}{\PrvniNadpis\bfseries}  % Zmena velikosti nadpisu obsahu
-\setlength{\cftchapnumwidth}{1.5em}                     % Sirka mezery mezi cislem kapitol a jejich nazvem
-\setlength{\cftsecindent}{1em}                          % Odsazeni pro sekce
-\setlength{\cftsubsecindent}{2em}                       % Odsazeni pro pod-sekce
-\setcounter{tocdepth}{1}								% Omezeni hlouby obsahu na pouze 2 urovne
+\setlength{\cftbeforetoctitleskip}{0pt}
+\setlength{\cftaftertoctitleskip}{10pt}
+\setlength{\cftbeforechapskip}{0pt}
+\setlength{\cftbeforesecskip}{0pt}
+\setlength{\cftbeforesubsecskip}{0pt}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cfttoctitlefont}{\PrvniNadpis\bfseries}
+\setlength{\cftchapnumwidth}{1.5em}
+\setlength{\cftsecindent}{1em}
+\setlength{\cftsubsecindent}{2em}
+\setcounter{tocdepth}{1}
 
-\tableofcontents										% Vlozeni samotneho obsahu
-
+\chapter*{Obsah}
 \thispagestyle{fancy}
-\fancyfoot[C]{}
+
+{\color{infoBlue}
+Do Obsahu jsou zahrnuty všechny seznamy, kapitoly a podkapitoly, přílohová část; Obsah neobsahuje „sám sebe“ a první strany práce před samotným obsahem. V obsahu zobrazte pouze nadpisy prvních dvou úrovní.
+
+Aktualizaci obsahu provedete klávesu F9 po umístění kurzoru do textu Obsahu.
+}
+
+\vspace{0.5cm}
+
+\makeatletter
+\@starttoc{toc}
+\makeatother
 
 \pagebreak

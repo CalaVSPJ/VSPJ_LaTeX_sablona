@@ -25,15 +25,15 @@
 \usepackage{enumitem}
 \usepackage{hanging}
 
-% Globální nastavení seznamů pro extrémně těsné řádkování (DOCX styl)
+% Extreme list tightening
 \setlist{nosep, itemsep=0pt, parsep=0pt, partopsep=0pt, topsep=0pt, leftmargin=2em}
 
-% Nastavení Obsahu (TOC) - extrémní těsnost
+% Extreme TOC tightening
 \setlength{\cftbeforechapskip}{0pt}
 \setlength{\cftbeforesecskip}{0pt}
 \setlength{\cftbeforesubsecskip}{0pt}
-\setlength{\cftaftertoctitleskip}{10pt}
 \renewcommand{\cftdotsep}{1}
+\setlength{\cftchapnumwidth}{1.5em}
 
 % Format stranky
 \setlength{\parindent}{0pt}
@@ -53,7 +53,7 @@
 % Promenne
 \newcommand{\varUniversity}{VYSOKÁ ŠKOLA POLYTECHNICKÁ JIHLAVA}
 \newcommand{\varProgram}{Studijní program}
-\newcommand{\varThesisType}{Bakalářská práce} % Může být: Bakalářská práce / Diplomová práce / Seminární práce
+\newcommand{\varThesisType}{Bakalářská práce} 
 \newcommand{\varThesisName}{NÁZEV PRÁCE}
 \newcommand{\varThesisSubName}{} 
 
@@ -62,7 +62,7 @@
 \newcommand{\varCity}{Jihlava}
 \newcommand{\varYear}{2026}
 
-% Formatovani nadpisu (DOCX parity)
+% Formatovani nadpisu
 \newcommand{\PrvniNadpis}{\fontsize{18}{22}\selectfont}
 \newcommand{\DruhyNadpis}{\fontsize{15}{18}\selectfont}
 \newcommand{\TretiNadpis}{\fontsize{12}{15}\selectfont}
@@ -95,6 +95,7 @@
 \DeclareQuoteStyle{czech}{„}{“}{‚}{‘}
 \setlength{\bibhang}{0pt}
 \DeclareFieldFormat{url}{Dostupné z: \url{#1}}
+\renewbibmacro*{note+url}{\newunit\newblock\printfield{note}\newunit\newblock\printfield{url}\newunit\newblock\printfield{organization}}
 \AtBeginBibliography{\renewcommand*{\mkbibnamefamily}[1]{\MakeUppercase{#1}}}
 
 \addbibresource{src/references.bib}

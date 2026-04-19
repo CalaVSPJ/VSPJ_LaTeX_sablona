@@ -71,10 +71,16 @@
 % Formatovani zahlavi a zapati
 \renewcommand{\headrulewidth}{0pt}
 \fancyhead[L]{}
-\fancyhead[R]{\textcolor[rgb]{0.5,0.5,0.5}{\textit{\varUniversity}}}
+\fancyhead[R]{\textcolor[rgb]{0.5,0.5,0.5}{\textit{Vysoká škola polytechnická Jihlava}}}
 \fancyfoot[C]{}
 \fancyfoot[R]{\thepage}
 \pagestyle{fancy}
+
+% Numbering of figures and tables (global numbering Obr. 1 instead of Obr. 1.1)
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\renewcommand{\figurename}{Obr.}
+\renewcommand{\tablename}{Tab.}
 
 % Nastaveni ceskych uvozovek
 \DeclareQuoteStyle{czech}{„}{“}{‚}{‘}

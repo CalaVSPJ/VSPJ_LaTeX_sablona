@@ -1,20 +1,32 @@
-\documentclass[11pt,a4paper]{report}    % Defaultni velikost fontu, format stranky, typ dokumentu
+\documentclass[11pt,a4paper]{report}
 
-\usepackage{src/conf/settings}          % Tady definuji veskere "dalsi nastaveni" vcetne promennych
+\usepackage{src/conf/settings}
 
 \begin{document}
 
-    \input{src/title_page}              % Titulni stranka
-    \input{src/zadani}                  % Zadani
-    \input{src/abstrakt}                % Abstrakt a klicova slova
-    \input{src/prohlaseni}              % Prohlaseni
-    \input{src/podekovani}              % Podekovani
-    \input{src/obsah}                   % Obsah
-    \input{src/seznamy}                 % Seznamy
-    \input{src/uvod}                    % Uvod
-    \input{src/text}                    % Samotny obsah prace
-    \input{src/zaver}                   % Zaver
-    \input{src/seznam_literatury}       % Seznam literatury
-    \input{src/prilohy}                 % Seznam priloh
+    \pagestyle{empty}
+    \input{src/title_page}
+    
+    \newpage
+    \pagestyle{fancy}
+    \fancyhead{} % Clear header for front matter
+    \fancyfoot[R]{\thepage}
+    
+    \input{src/zadani}
+    \input{src/abstrakt}
+    \input{src/prohlaseni}
+    \input{src/podekovani}
+    
+    \newpage
+    % Enable full header from Obsah onwards
+    \fancyhead[R]{\textcolor[rgb]{0.5,0.5,0.5}{\textit{Vysoká škola polytechnická Jihlava}}}
+    
+    \input{src/obsah}
+    \input{src/seznamy}
+    \input{src/uvod}
+    \input{src/text}
+    \input{src/zaver}
+    \input{src/seznam_literatury}
+    \input{src/prilohy}
 
 \end{document}

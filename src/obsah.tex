@@ -1,0 +1,19 @@
+% Nastaveni radkovani tabulky
+\setlength{\cftbeforetoctitleskip}{0pt}                 % Mezera od zacatku stranky a pred nadpisem Obsah
+\setlength{\cftaftertoctitleskip}{10pt}                 % Mezera od nadpisu Obsah a samotnym obsahem
+\setlength{\cftbeforechapskip}{0pt}                     % Radkovani pred kapitolou
+\setlength{\cftbeforesecskip}{0pt}                      % Radkovani pred sekci
+\setlength{\cftbeforesubsecskip}{0pt}                   % Radkovani pred subsekci
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}  % Navadejici teckovana linky i pro kapitoly
+\renewcommand{\cfttoctitlefont}{\PrvniNadpis\bfseries}  % Zmena velikosti nadpisu obsahu
+\setlength{\cftchapnumwidth}{1.5em}                     % Sirka mezery mezi cislem kapitol a jejich nazvem
+\setlength{\cftsecindent}{1em}                          % Odsazeni pro sekce
+\setlength{\cftsubsecindent}{2em}                       % Odsazeni pro pod-sekce
+\setcounter{tocdepth}{1}								% Omezeni hlouby obsahu na pouze 2 urovne
+
+\tableofcontents										% Vlozeni samotneho obsahu
+
+\thispagestyle{fancy}
+\fancyfoot[C]{}
+
+\pagebreak

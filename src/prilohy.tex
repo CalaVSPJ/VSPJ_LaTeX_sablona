@@ -1,0 +1,26 @@
+\appendix
+\chapter*{Přílohy}
+\fancyfoot[C]{}
+\thispagestyle{fancy}
+
+\addcontentsline{toc}{chapter}{Přílohy}
+
+\lstset{
+  basicstyle=\ttfamily\small,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  frame=single,
+  breaklines=true,
+  aboveskip=0mm,
+  belowskip=0mm 
+}
+
+\begin{singlespace}
+\lstinputlisting[
+  firstline=1,
+  lastline=48,
+  caption={GitHub Actions workflow},
+  label={code:example}
+]{.github/workflows/latex.yaml}
+\end{singlespace}

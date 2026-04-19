@@ -1,0 +1,32 @@
+\setlength{\cftbeforeloftitleskip}{0pt}		% Before List of Figures title
+\setlength{\cftafterloftitleskip}{10pt}		% After List of Figures title
+\setlength{\cftfigindent}{0pt}
+\setlength{\cftbeforelottitleskip}{12pt}	% Before List of Tables title
+\setlength{\cftafterlottitleskip}{20pt}		% After List of Tables title
+\setlength{\cfttabindent}{0pt}
+\setlength{\cftbeforetabskip}{-10pt}
+
+\renewcommand{\cftloftitlefont}{\PrvniNadpis\bfseries}
+\renewcommand{\cftlottitlefont}{\PrvniNadpis\bfseries}
+
+\listoffigures
+\addcontentsline{toc}{chapter}{Seznam obrázků}
+
+\listoftables
+\addcontentsline{toc}{chapter}{Seznam tabulek}
+
+\vfill
+
+\section*{\PrvniNadpis Seznam zkratek}
+\addcontentsline{toc}{chapter}{Seznam zkratek}
+
+\begin{tabbing}
+    \hspace{1.5cm} \= \hspace{3cm} \= \kill
+    CI/CD	\> Z anglického \enquote{Continuous Integration/Continuous Development} \\
+    VCS 	\> Z anglického \enquote{Version Control System}\\
+    PaaS	\> Z anglického \enquote{Platform as a Service}\\
+\end{tabbing}
+
+\thispagestyle{fancy}
+
+\pagebreak

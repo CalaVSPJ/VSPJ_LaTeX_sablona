@@ -1,0 +1,91 @@
+% Nastaveni vlastniho fontu
+\usepackage{fontspec}													% Balicek pro vlastni fonty
+\setmainfont{Carlito} 													% Nastaveni Calibri (Linuxovy ekvivalent) jako hlavni
+\usepackage{multicol}
+
+% Pouzite balicky
+%\usepackage[utf8]{inputenc}											% Nemel by byt potreba na systemech s defaultnim UTF8
+\usepackage[czech]{babel}												% Nastaveni ceskeho jazyka
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{hyperref}													% Textove odkazy
+\usepackage{geometry}
+\usepackage[useregional]{datetime2}										% Regionalni datum, cas
+\usepackage{tocloft}													% Redefinice obsahu
+\usepackage{titlesec}													% Redefinice nadpisu
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{csquotes}
+\usepackage{tabularx}
+\usepackage[style=authoryear, backend=biber]{biblatex}
+\usepackage{listings}
+\usepackage{setspace}
+\usepackage{svg}
+
+
+% Format stranky
+\setlength{\parindent}{0pt}												% Odrazka na zacatku noveho odstavce
+\setlength{\parskip}{6pt}												% Radkovani za koncem odstavce
+\linespread{1.15}														% Radkovani
+\geometry{top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm} 			% Okraje
+
+% Promenne pouzite pro titulni stranku
+\newcommand{\varUniversity}{VYSOKÁ ŠKOLA POLYTECHNICKÁ JIHLAVA}			% Jmeno skoly
+\newcommand{\varCircle}{Aplikovaná Informatika \textendash\ kombi}		% Obor
+\newcommand{\varThesisName}{VERZOVACÍ SOFTWARE \textendash\ GITHUB}		% Nazev prace
+
+\newcommand{\varAuthor}{Autor}									% Autor
+\newcommand{\varClass}{Předmět}							% Predmet
+\newcommand{\varTutor}{Vyučující}						% Vyucujici
+
+% Formatovani nadpisu
+\newcommand{\PrvniNadpis}{\fontsize{18}{22}\selectfont}
+\newcommand{\DruhyNadpis}{\fontsize{15}{18}\selectfont}
+\newcommand{\TretiNadpis}{\fontsize{12}{15}\selectfont}
+
+\titleformat{\chapter}[block]
+  {\normalfont\PrvniNadpis\bfseries}									% format nazvu kapitoly
+  {\thechapter}{0.5em}{}												% format cislovani kapitoly
+  \titlespacing*{\chapter}{0pt}{0pt}{0pt}
+\titleformat{\section}[block]
+  {\normalfont\DruhyNadpis\bfseries}									% format nazvu sekce
+  {\thesection}{0.5em}{}												% format cislovani sekce
+  \titlespacing*{\section}{0pt}{0pt}{0pt}
+\titleformat{\subsection}[block]
+  {\normalfont\TretiNadpis\bfseries}									% format nazvu subsekce
+  {\thesubsection}{0.5em}{}												% format cislovani subsekce
+  \titlespacing*{\subsection}{0pt}{0pt}{0pt}
+
+% Formatovani zahlavi a zapati
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[L]{\textcolor[rgb]{0.5,0.5,0.5}{Verzovací software \textendash\ GitHub}}
+\fancyhead[R]{\textcolor[rgb]{0.5,0.5,0.5}{Vysoká škola polytechnická Jihlava}}
+\fancyfoot[C]{\thepage\ (Celkem \pageref{LastPage})}
+\fancyfoot[R]{\textcolor[rgb]{0.5,0.5,0.5}{\varAuthor\ \the\day.\thinspace\the\month.\thinspace\the\year\ v1.1}}
+\pagestyle{fancy}
+
+% Nastaveni ceskych uvozovek
+\DeclareQuoteStyle{czech}{„}{“}{‚}{‘}
+
+% Pridani zdroje referenci a formatovani referenci
+% https://www.citace.zcu.cz/caste-chyby.html
+\setlength{\bibhang}{0pt}
+\DeclareFieldFormat{url}{Dostupné z: \url{#1}}
+\renewbibmacro*{note+url}{ 
+  \newunit\newblock
+  \printfield{note}
+  \newunit\newblock
+  \printfield{url}
+  \newunit\newblock
+  \printfield{organization}
+}
+\AtBeginBibliography{\renewcommand*{\mkbibnamefamily}[1]{\MakeUppercase{#1}}}
+\newcounter{bibitemcounter}
+\setcounter{bibitemcounter}{0}
+\renewbibmacro*{begentry}{%
+  \stepcounter{bibitemcounter}%
+  \textbf{\thebibitemcounter.}\space
+}
+
+\addbibresource{src/references.bib}

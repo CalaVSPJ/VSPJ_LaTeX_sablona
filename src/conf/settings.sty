@@ -1,6 +1,6 @@
 % Nastaveni vlastniho fontu
 \usepackage{fontspec}
-\setmainfont{Carlito} 
+\setmainfont{Carlito}
 \usepackage{multicol}
 
 \usepackage[czech]{babel}
@@ -8,6 +8,7 @@
 \usepackage{amsmath}
 \usepackage{fancyhdr}
 \usepackage{hyperref}
+\hypersetup{hidelinks}
 \usepackage{xurl}
 \usepackage{geometry}
 \usepackage[useregional]{datetime2}
@@ -15,7 +16,10 @@
 \usepackage{titlesec}
 \usepackage{lastpage}
 \usepackage{xcolor}
-\definecolor{infoBlue}{RGB}{91,155,213} 
+% #5B9BD5 — general instruction text (most sections)
+\definecolor{infoBlue}{RGB}{91,155,213}
+% #0070C0 — TOC / heading-level instruction text
+\definecolor{darkBlue}{RGB}{0,112,192}
 \usepackage{csquotes}
 \usepackage{tabularx}
 \usepackage[style=authoryear, backend=biber]{biblatex}
@@ -25,10 +29,10 @@
 \usepackage{enumitem}
 \usepackage{hanging}
 
-% Globální nastavení seznamů pro extrémně těsné řádkování (DOCX styl)
-\setlist{nosep, itemsep=0pt, parsep=0pt, partopsep=0pt, topsep=0pt, leftmargin=2em}
+% Globální nastavení seznamů — těsné řádkování dle DOCX (indent 36pt = 1.27cm)
+\setlist{nosep, itemsep=0pt, parsep=0pt, partopsep=0pt, topsep=0pt, leftmargin=36pt}
 
-% Nastavení Obsahu (TOC), Seznamu obrázků a tabulek - absolutní těsnost
+% Nastavení Obsahu (TOC), Seznamu obrázků a tabulek
 \setlength{\cftbeforechapskip}{0pt}
 \setlength{\cftbeforesecskip}{0pt}
 \setlength{\cftbeforesubsecskip}{0pt}
@@ -39,8 +43,20 @@
 \setlength{\cftafterlottitleskip}{10pt}
 \renewcommand{\cftdotsep}{1}
 \setlength{\cftchapnumwidth}{1.5em}
+% Tečky i u kapitol dle DOCX (Obsah1: leader="dot")
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+% Seznam obrázků a tabulek — bez odsazení dle DOCX (left=0)
+\setlength{\cftfigindent}{0pt}
+\setlength{\cfttabindent}{0pt}
+% Formát čísla: "Obr. 1: " / "Tab. 1: " dle DOCX
+\renewcommand{\cftfigpresnum}{Obr.\ }
+\renewcommand{\cftfigaftersnum}{:\ }
+\setlength{\cftfignumwidth}{3.5em}
+\renewcommand{\cfttabpresnum}{Tab.\ }
+\renewcommand{\cfttabaftersnum}{:\ }
+\setlength{\cfttabnumwidth}{3.5em}
 
-% Format stranky
+% Format stranky — přesně dle DOCX (twips přepočet)
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt}
 \linespread{1.15}
@@ -52,37 +68,73 @@
     right=2.5cm,
     headheight=14pt,
     headsep=0.75cm,
-    footskip=0.75cm
+    % footskip odpovídá vzdálenosti zápatí v DOCX (1.251 cm od dolního okraje stránky)
+    footskip=1.1cm
 }
 
-% Promenne
-\newcommand{\varUniversity}{VYSOKÁ ŠKOLA POLYTECHNICKÁ JIHLAVA}
-\newcommand{\varProgram}{Studijní program}
-\newcommand{\varThesisType}{Bakalářská práce / Diplomová práce}
-\newcommand{\varThesisName}{NÁZEV PRÁCE}
-\newcommand{\varThesisSubName}{} 
+% =========================================================
+% PROMĚNNÉ — zde vyplň údaje o své práci
+% Tyto hodnoty se automaticky propíší na titulní stranu
+% a do dalších částí dokumentu.
+% =========================================================
+\newcommand{\varUniversity}{Vysoká škola polytechnická Jihlava}
+\newcommand{\varProgram}{Studijní program}              % název studijního programu
+\newcommand{\varThesisType}{Bakalářská práce}           % typ práce
+\newcommand{\varThesisName}{Název práce}                % celý název práce
 
-\newcommand{\varAuthor}{Jméno Příjmení}
-\newcommand{\varTutor}{titul Jméno Příjmení, titul}
-\newcommand{\varCity}{Jihlava}
-\newcommand{\varYear}{2026}
+\newcommand{\varAuthor}{Jméno Příjmení}                 % autor: jméno a příjmení
+\newcommand{\varTutor}{titul Jméno Příjmení, titul}     % vedoucí práce včetně titulů
+\newcommand{\varCity}{Jihlava}                          % místo odevzdání
+\newcommand{\varYear}{2026}                             % rok odevzdání
+% =========================================================
 
-% Formatovani nadpisu
+% Formatovani nadpisu — velikosti dle DOCX (Nadpis1=18pt, Nadpis2=15pt, Nadpis3=12pt)
 \newcommand{\PrvniNadpis}{\fontsize{18}{22}\selectfont}
 \newcommand{\DruhyNadpis}{\fontsize{15}{18}\selectfont}
 \newcommand{\TretiNadpis}{\fontsize{12}{15}\selectfont}
 
-\titleformat{\chapter}[block]{\normalfont\PrvniNadpis\bfseries}{\thechapter}{0.5em}{}
+% Kapitoly číslované — [hang] se zarovnáním na 21.55pt dle DOCX (Nadpis1 indent-left/hanging)
+\titleformat{\chapter}[hang]
+  {\normalfont\PrvniNadpis\bfseries}
+  {\makebox[21.55pt][l]{\thechapter}}
+  {0pt}{}
+% Kapitoly nečíslované — bez odsazení (styl Nzev/Title v DOCX)
+\titleformat{name=\chapter,numberless}[block]
+  {\normalfont\PrvniNadpis\bfseries}
+  {}
+  {0pt}{}
 \titlespacing*{\chapter}{0pt}{18pt}{6pt}
-\titleformat{\section}[block]{\normalfont\DruhyNadpis\bfseries}{\thesection}{0.5em}{}
+
+% Podkapitoly číslované — [hang] se zarovnáním na 28.9pt dle DOCX (Nadpis2 indent-left/hanging)
+\titleformat{\section}[hang]
+  {\normalfont\DruhyNadpis\bfseries}
+  {\makebox[28.9pt][l]{\thesection}}
+  {0pt}{}
+% Podkapitoly nečíslované
+\titleformat{name=\section,numberless}[block]
+  {\normalfont\DruhyNadpis\bfseries}
+  {}
+  {0pt}{}
 \titlespacing*{\section}{0pt}{18pt}{6pt}
-\titleformat{\subsection}[block]{\normalfont\TretiNadpis\bfseries}{\thesubsection}{0.5em}{}
+
+% Oddíly (Nadpis3) — bez hanging indent dle DOCX
+\titleformat{\subsection}[block]
+  {\normalfont\TretiNadpis\bfseries}
+  {\thesubsection}{0.5em}{}
 \titlespacing*{\subsection}{0pt}{18pt}{6pt}
 
-% Headers
+% Nadpis stylu "Nzev" — 18pt tučně, 18pt před, 6pt po, BEZ zalomení stránky
+% Používá se pro Klíčová slova, Abstract, Keywords uvnitř stránky Abstraktu
+\newcommand{\nzev}[1]{%
+  \par\vspace{18pt}%
+  {\normalfont\PrvniNadpis\bfseries #1\par}%
+  \vspace{6pt}%
+}
+
+% Záhlaví — barva #808080, kurzíva, dle DOCX header1.xml (color=808080, italic)
 \renewcommand{\headrulewidth}{0pt}
 \fancyhead[L]{}
-\fancyhead[R]{\textcolor[rgb]{0.5,0.5,0.5}{\textit{Vysoká škola polytechnická Jihlava}}}
+\fancyhead[R]{\textcolor[HTML]{808080}{\textit{Vysoká škola polytechnická Jihlava}}}
 \fancyfoot[C]{}
 \fancyfoot[R]{\thepage}
 \pagestyle{fancy}
@@ -97,7 +149,7 @@
 \renewcommand{\figurename}{Obr.}
 \renewcommand{\tablename}{Tab.}
 
-\DeclareQuoteStyle{czech}{„}{“}{‚}{‘}
+\DeclareQuoteStyle{czech}{„}{"}{‚}{'}
 \setlength{\bibhang}{0pt}
 \DeclareFieldFormat{url}{Dostupné z: \url{#1}}
 \renewbibmacro*{note+url}{\newunit\newblock\printfield{note}\newunit\newblock\printfield{url}\newunit\newblock\printfield{organization}}

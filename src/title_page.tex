@@ -1,25 +1,47 @@
+% Strana 1 titulní strany
 \begin{titlepage}
     \thispagestyle{empty}
-    \centering
-    \vspace*{1cm}
-    {\huge \textbf{VYSOKÁ ŠKOLA POLYTECHNICKÁ JIHLAVA}}\\[0.5cm]
-    \Large \varProgram\\[4cm]
-    
-    \textbf{\huge \varThesisName}\\[0.5cm]
-    \Large \varThesisType\\[0.5cm]
-    \Large \varThesisSubName
-    
-    \vfill
-    
+    \setlength{\parskip}{0pt}
+
+    % Záhlaví titulní strany: 20pt tučně, verzálky, centrováno — dle DOCX Para 1 (sz=20, bold, caps, jc=center)
+    \begin{center}
+        {\fontsize{20}{24}\selectfont\bfseries\MakeUppercase{\varUniversity}}
+    \end{center}
+
+    % Program: 14pt, řádkování 1.5× (line=360 dle DOCX Para 2), centrováno
+    \begin{center}
+        {\fontsize{14}{21}\selectfont\varProgram}
+    \end{center}
+
+    % Mezera odpovídající 9 prázdným řádkům Normal stylu (11pt × 1.15 + 6pt = ~18.65pt × 9 ≈ 168pt)
+    \vspace{168pt}
+
+    % Název práce: 20pt tučně, verzálky, centrováno — dle DOCX Para 12
+    \begin{center}
+        {\fontsize{20}{24}\selectfont\bfseries\MakeUppercase{\varThesisName}}
+    \end{center}
+
+    % Typ práce: 11pt (Normal), centrováno — dle DOCX Para 13 (bez sz override)
+    \begin{center}
+        {\normalsize\varThesisType}
+    \end{center}
+
+    % Mezera odpovídající 10 prázdným řádkům Normal stylu (~18.65pt × 10 ≈ 187pt)
+    \vspace{187pt}
+
+    % Autor a vedoucí: 14pt, 1.5× řádkování, zarovnáno vlevo — dle DOCX Para 24/25
+    % Tab stop na 1985 twips = 99.25pt od levého okraje textu
     \begin{flushleft}
-        \Large
-        \begin{tabular}{ l l }
-            Autor práce:    & \varAuthor \\
-            Vedoucí práce:  & \varTutor
-        \end{tabular}
+        {\fontsize{14}{21}\selectfont\noindent
+        \makebox[99.25pt][l]{Autor práce:}\varAuthor\\[0pt]
+        \makebox[99.25pt][l]{Vedoucí práce:}\varTutor
+        }
     \end{flushleft}
-    
-    \vspace{1cm}
-    \centering
-    \Large \varCity\ \varYear
+
+    % Město a rok: na spodní části stránky 1 — dle DOCX
+    \vfill
+    \begin{center}
+        {\fontsize{14}{21}\selectfont\varCity\ \varYear}
+    \end{center}
+
 \end{titlepage}

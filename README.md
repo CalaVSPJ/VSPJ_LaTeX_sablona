@@ -1,49 +1,70 @@
-# VŠPJ LaTeX Šablona
+# Šablona závěrečné práce – VŠPJ
 
-Tento repozitář obsahuje LaTeXovou šablonu pro psaní seminárních, bakalářských a jiných prací na Vysoké škole polytechnické Jihlava (VŠPJ). Šablona je navržena tak, aby co nejtěsněji odpovídala oficiálnímu vzoru (`Dokumenty/Sablona.pdf`).
+LaTeXová šablona pro psaní bakalářských a jiných závěrečných prací na Vysoké škole polytechnické Jihlava. Vizuálně odpovídá oficiálnímu vzoru v `Dokumenty/Sablona.docx`.
 
-## Vlastnosti
-- **Soulad se vzorem:** Struktura a formátování odpovídají oficiálním požadavkům VŠPJ.
-- **Automatizace:** Integrované GitHub Actions pro automatickou kompilaci do PDF při každém commitu.
-- **Snadná lokalizace:** Možnost lokální kompilace pomocí Dockeru bez nutnosti instalace kompletního LaTeXového prostředí.
-- **Pseudonymizace:** Vzorový obsah je zbaven konkrétních osobních údajů a nahrazen zástupnými symboly.
-
-## Struktura projektu
-- `src/`: Zdrojové soubory LaTeXu.
-  - `conf/settings.sty`: Hlavní nastavení (fonty, balíčky, proměnné).
-  - `semestralni_prace.tex`: Hlavní soubor projektu.
-- `Dokumenty/`: Oficiální šablony a pokyny.
-- `Verze/`: Adresář pro vygenerované verze PDF (automaticky plněno GitHub Actions).
+---
 
 ## Jak začít
 
-1. **Konfigurace:**
-   V souboru `src/conf/settings.sty` upravte proměnné pro vaši práci:
-   ```latex
-   \newcommand{\varProgram}{Studijní program}
-   \newcommand{\varThesisName}{NÁZEV PRÁCE}
-   \newcommand{\varAuthor}{Jméno Příjmení}
-   \newcommand{\varTutor}{titul Jméno Příjmení, titul}
-   ```
+### 1. Získej šablonu
 
-2. **Psaní textu:**
-   Jednotlivé kapitoly jsou rozděleny do samostatných souborů v `src/` (např. `uvod.tex`, `text.tex`, `zaver.tex`).
+Forkni tento repozitář na svůj GitHub účet (tlačítko **Fork** vpravo nahoře). Tím získáš vlastní kopii, do které můžeš psát.
 
-## Kompilace
+### 2. Vyplň své údaje
 
-### Lokální kompilace (Docker)
-Pro kompilaci bez instalace LaTeXu lokálně můžete využít přiložený `Makefile` (vyžaduje nainstalovaný Docker):
-```bash
-make build
+Otevři soubor `src/conf/settings.sty` a uprav proměnné na začátku souboru:
+
+```latex
+\newcommand{\varProgram}{Aplikovaná informatika}
+\newcommand{\varThesisType}{Bakalářská práce}
+\newcommand{\varThesisName}{Název mé práce}
+\newcommand{\varAuthor}{Jan Novák}
+\newcommand{\varTutor}{doc. Ing. Jana Veselá, Ph.D.}
+\newcommand{\varYear}{2026}
 ```
-Výsledné PDF naleznete v adresáři `output/`.
 
-### Automatická kompilace (GitHub Actions)
-Při každém `push` do větve `main` (změny v adresáři `src/`) se automaticky spustí workflow, které:
-1. Zkompiluje dokument.
-2. Uloží výsledné PDF do adresáře `Verze/` s časovým razítkem.
-3. Commitne změny zpět do repozitáře.
+Tyto hodnoty se automaticky propíší na titulní stranu a do dalších částí dokumentu.
 
-## Požadavky pro lokální běh
-- Docker
-- Make (volitelně, lze spustit příkazy z Makefile přímo)
+### 3. Piš svoji práci
+
+Obsah práce patří do souborů v adresáři `src/` – každá kapitola má svůj soubor. Podrobný přehled viz [`src/README.md`](src/README.md).
+
+---
+
+## Sestavení PDF
+
+### Přes GitHub Actions (doporučeno, bez instalace čehokoli)
+
+Při každém `push` do větve `main` se PDF automaticky zkompiluje a uloží do adresáře `Verze/` s časovým razítkem. Stačí uložit změny, commitnout a pushnout – PDF najdeš přímo v repozitáři.
+
+> Workflow se spustí pouze při změnách v adresáři `src/`.
+
+Výsledné PDF je dostupné dvěma způsoby:
+- přímo v adresáři `Verze/` v repozitáři
+- v záložce **Actions** → poslední běh → artefakty
+
+### Lokálně pomocí Dockeru
+
+Vyžaduje nainstalovaný [Docker](https://www.docker.com/).
+
+```bash
+./build.sh
+```
+
+PDF se uloží do adresáře `output/`.
+
+---
+
+## Struktura repozitáře
+
+```
+├── src/                  ← sem patří tvůj text
+│   ├── conf/             ← nastavení šablony (upravuj jen proměnné)
+│   ├── img/              ← obrázky a grafy
+│   └── *.tex             ← kapitoly práce
+├── Dokumenty/            ← oficiální vzor VŠPJ (neupravuj)
+├── Verze/                ← automaticky generované PDF s časovým razítkem
+└── output/               ← výstup lokální kompilace
+```
+
+Podrobnější popis souborů v `src/` najdeš v [`src/README.md`](src/README.md).

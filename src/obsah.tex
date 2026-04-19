@@ -1,31 +1,21 @@
 % Nastaveni radkovani tabulky
 \setlength{\cftbeforetoctitleskip}{0pt}
 \setlength{\cftaftertoctitleskip}{10pt}
-\setlength{\cftbeforechapskip}{1pt} 
-\setlength{\cftbeforesecskip}{0pt}
-\setlength{\cftbeforesubsecskip}{0pt}
-\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
-\renewcommand{\cfttoctitlefont}{\PrvniNadpis\bfseries}
-\setlength{\cftchapnumwidth}{1.5em}
-\setlength{\cftsecindent}{1em}
-\setlength{\cftsubsecindent}{2em}
 \setcounter{tocdepth}{1}
 
 \chapter*{Obsah}
 \thispagestyle{fancy}
 \fancyfoot[R]{\thepage}
 
-{\begin{spacing}{1.0}
+\begin{spacing}{0.8}
 {\color{infoBlue}
 Do Obsahu jsou zahrnuty všechny seznamy, kapitoly a podkapitoly, přílohová část; Obsah neobsahuje „sám sebe“ a první strany práce před samotným obsahem. V obsahu zobrazte pouze nadpisy prvních dvou úrovní.
 
 Aktualizaci obsahu provedete klávesu F9 po umístění kurzoru do textu Obsahu.
 }
-\end{spacing}}
 
 \vspace{0.3cm}
 
-\begin{spacing}{1.0}
 \makeatletter
 \@starttoc{toc}
 \makeatother

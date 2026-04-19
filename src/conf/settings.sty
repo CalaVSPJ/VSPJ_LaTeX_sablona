@@ -8,6 +8,7 @@
 \usepackage{amsmath}
 \usepackage{fancyhdr}
 \usepackage{hyperref}
+\usepackage{xurl} % Better URL breaking
 \usepackage{geometry}
 \usepackage[useregional]{datetime2}
 \usepackage{tocloft}
@@ -27,6 +28,12 @@
 % Extreme tightening for lists (DOCX style)
 \setlist{nosep, itemsep=0pt, parsep=0pt, partopsep=0pt, topsep=2pt, leftmargin=2em}
 
+% Extreme tightening for TOC
+\setlength{\cftbeforechapskip}{1pt}
+\setlength{\cftbeforesecskip}{0pt}
+\setlength{\cftbeforesubsecskip}{0pt}
+\renewcommand{\cftdotsep}{1} % Denser dots
+
 % Format stranky
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt}
@@ -45,9 +52,9 @@
 % Promenne
 \newcommand{\varUniversity}{VYSOKÁ ŠKOLA POLYTECHNICKÁ JIHLAVA}
 \newcommand{\varProgram}{Studijní program}
-\newcommand{\varThesisType}{Bakalářská práce} % Uživatelem měnitelné: Bakalářská / Diplomová / Seminární
+\newcommand{\varThesisType}{Bakalářská práce}
 \newcommand{\varThesisName}{NÁZEV PRÁCE}
-\newcommand{\varThesisSubName}{} % Volitelný podnázev
+\newcommand{\varThesisSubName}{}
 
 \newcommand{\varAuthor}{Jméno Příjmení}
 \newcommand{\varTutor}{titul Jméno Příjmení, titul}
@@ -65,11 +72,6 @@
 \titlespacing*{\section}{0pt}{12pt}{6pt}
 \titleformat{\subsection}[block]{\normalfont\TretiNadpis\bfseries}{\thesubsection}{0.5em}{}
 \titlespacing*{\subsection}{0pt}{12pt}{6pt}
-
-% TOC Spacing (Tight)
-\setlength{\cftbeforechapskip}{2pt}
-\setlength{\cftbeforesecskip}{0pt}
-\setlength{\cftbeforesubsecskip}{0pt}
 
 % Headers
 \renewcommand{\headrulewidth}{0pt}

@@ -18,9 +18,11 @@
 Seznam obrázků se v práci objeví za obsahem, když v práci bude pět a více obrázků. Aktualizaci seznamu provedete klávesou F9 po umístění kurzoru do textu Obsahu.
 }
 
-\begin{spacing}{0.1}
-\listoffigures
-\end{spacing}
+\vspace{0.3cm}
+
+\makeatletter
+\@starttoc{lof}
+\makeatother
 
 \chapter*{Seznam tabulek}
 \addcontentsline{toc}{chapter}{Seznam tabulek}
@@ -31,9 +33,11 @@ Seznam obrázků se v práci objeví za obsahem, když v práci bude pět a víc
 Seznam tabulek se v práci objeví zde, když v práci bude pět a více tabulek. Aktualizaci seznamu provedete klávesou F9 po umístění kurzoru do textu Obsahu.
 }
 
-\begin{spacing}{0.1}
-\listoftables
-\end{spacing}
+\vspace{0.3cm}
+
+\makeatletter
+\@starttoc{lot}
+\makeatother
 
 \vfill
 

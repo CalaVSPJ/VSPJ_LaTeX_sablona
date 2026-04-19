@@ -1,7 +1,6 @@
 % Nastaveni vlastniho fontu
 \usepackage{fontspec}
 \setmainfont{Carlito}
-\usepackage{multicol}
 
 \usepackage[czech]{babel}
 \usepackage{graphicx}
@@ -14,7 +13,6 @@
 \usepackage[useregional]{datetime2}
 \usepackage{tocloft}
 \usepackage{titlesec}
-\usepackage{lastpage}
 \usepackage{xcolor}
 % #5B9BD5 — general instruction text (most sections)
 \definecolor{infoBlue}{RGB}{91,155,213}
@@ -24,7 +22,6 @@
 \usepackage{tabularx}
 \usepackage{listings}
 \usepackage{setspace}
-\usepackage{svg}
 \usepackage{enumitem}
 \usepackage{hanging}
 
@@ -130,13 +127,7 @@
   \vspace{6pt}%
 }
 
-% Záhlaví — barva #808080, kurzíva, dle DOCX header1.xml (color=808080, italic)
 \renewcommand{\headrulewidth}{0pt}
-\fancyhead[L]{}
-\fancyhead[R]{\textcolor[HTML]{808080}{\textit{Vysoká škola polytechnická Jihlava}}}
-\fancyfoot[C]{}
-\fancyfoot[R]{\thepage}
-\pagestyle{fancy}
 
 \usepackage{caption}
 \DeclareCaptionFont{smallbf}{\small\bfseries}

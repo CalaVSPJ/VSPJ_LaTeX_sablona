@@ -4,9 +4,10 @@
 
 \begin{document}
 
-    % Front matter - no headers, right-aligned page numbers
+    % Přední část — bez záhlaví, číslo stránky vpravo
     \pagestyle{fancy}
-    \fancyhead{} 
+    \fancyhead{}
+    \fancyfoot[C]{}
     \fancyfoot[R]{\thepage}
 
     \input{src/title_page}
@@ -16,8 +17,8 @@
     \input{src/podekovani}
     
     \newpage
-    % Main matter - enable university header
-    \fancyhead[R]{\textcolor[rgb]{0.5,0.5,0.5}{\textit{Vysoká škola polytechnická Jihlava}}}
+    % Hlavní část — záhlaví s názvem školy dle DOCX (barva #808080, kurzíva)
+    \fancyhead[R]{\textcolor[HTML]{808080}{\textit{Vysoká škola polytechnická Jihlava}}}
     
     \input{src/obsah}
     \input{src/seznamy}

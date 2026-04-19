@@ -1,15 +1,16 @@
 #!/bin/bash
 
 # Simple build script for VSPJ LaTeX template
-# Usage: ./build.sh [output_directory]
+# Usage: [DOCKER=sudo] ./build.sh [output_directory]
 
+DOCKER=${DOCKER:-docker}
 OUTPUT_DIR=${1:-output}
 
-echo "Building LaTeX project into directory: $OUTPUT_DIR"
+echo "Building LaTeX project into directory: $OUTPUT_DIR using $DOCKER"
 
 mkdir -p "$OUTPUT_DIR"
 
-docker run --rm \
+$DOCKER run --rm \
     -v "$(pwd)":/workspace \
     -w /workspace \
     texlive/texlive:latest \

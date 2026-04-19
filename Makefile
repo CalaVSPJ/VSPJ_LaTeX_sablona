@@ -1,5 +1,6 @@
 # Makefile for VSPJ LaTeX template
 
+DOCKER ?= docker
 DOCKER_IMAGE = texlive/texlive:latest
 SRC_DIR = src
 MAIN_FILE = semestralni_prace.tex
@@ -11,7 +12,7 @@ all: build
 
 build:
 	mkdir -p $(OUTPUT_DIR)
-	docker run --rm \
+	$(DOCKER) run --rm \
 		-v $$(pwd):/workspace \
 		-w /workspace \
 		$(DOCKER_IMAGE) \

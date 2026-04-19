@@ -49,14 +49,20 @@ Stránky se nemusí číslovat v návaznosti na hlavní text. U převzatých př
   frame=single,
   breaklines=true,
   aboveskip=0mm,
-  belowskip=0mm 
+  belowskip=0mm
 }
 
 \begin{singlespace}
-\lstinputlisting[
-  firstline=1,
-  lastline=30,
-  caption={GitHub Actions workflow},
-  label={code:example}
-]{.github/workflows/latex.yaml}
+\begin{lstlisting}[caption={Ukazka zdrojoveho kodu v jazyce Python}, label={code:example}]
+def fibonacci(n):
+    if n <= 1:
+        return n
+    a, b = 0, 1
+    for _ in range(2, n + 1):
+        a, b = b, a + b
+    return b
+
+for i in range(10):
+    print(f"fib({i}) = {fibonacci(i)}")
+\end{lstlisting}
 \end{singlespace}

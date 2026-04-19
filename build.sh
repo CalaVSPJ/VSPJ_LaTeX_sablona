@@ -23,7 +23,7 @@ mkdir -p "$OUTPUT_DIR"
 mkdir -p "$LOG_DIR"
 mkdir -p "$TEMP_DIR"
 
-echo -n "1/3 Preparing environment (apt, fonts)... "
+echo -n "1/2 Preparing and Compiling document... "
 $DOCKER run --rm \
     -v "$(pwd)":/workspace \
     -w /workspace \
@@ -32,40 +32,24 @@ $DOCKER run --rm \
         (
             apt-get update && \
             apt-get install -y fontconfig fonts-crosextra-carlito inkscape && \
-            fc-cache -f
-        ) > /workspace/$LOG_DIR/setup.log 2>&1
+            fc-cache -f && \
+            latexmk -xelatex -interaction=nonstopmode --shell-escape \
+            -output-directory=$TEMP_DIR \
+            src/semestralni_prace.tex
+        ) > /workspace/$LOG_DIR/build.log 2>&1
     "
 
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}DONE${NC}"
 else
     echo -e "${RED}FAILED${NC}"
-    echo -e "Check log: $LOG_DIR/setup.log"
+    echo -e "Check log: $LOG_DIR/build.log"
+    # Show last few lines of error if they contain "!"
+    grep -A 5 "! " "$LOG_DIR/build.log" | tail -n 20
     exit 1
 fi
 
-echo -n "2/3 Compiling LaTeX document... "
-$DOCKER run --rm \
-    -v "$(pwd)":/workspace \
-    -w /workspace \
-    texlive/texlive:latest \
-    bash -c "
-        latexmk -xelatex -interaction=nonstopmode --shell-escape \
-        -output-directory=$TEMP_DIR \
-        src/semestralni_prace.tex > /workspace/$LOG_DIR/latex.log 2>&1
-    "
-
-if [ $? -eq 0 ]; then
-    echo -e "${GREEN}DONE${NC}"
-else
-    echo -e "${RED}FAILED${NC}"
-    echo -e "Check log: $LOG_DIR/latex.log"
-    # Show last few lines of error
-    tail -n 10 "$LOG_DIR/latex.log"
-    exit 1
-fi
-
-echo -n "3/3 Cleaning up and finalizing... "
+echo -n "2/2 Cleaning up and finalizing... "
 cp "$TEMP_DIR/semestralni_prace.pdf" "$OUTPUT_DIR/$PDF_NAME" 2>/dev/null
 rm -rf "$TEMP_DIR"
 echo -e "${GREEN}DONE${NC}"

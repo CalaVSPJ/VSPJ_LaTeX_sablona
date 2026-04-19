@@ -26,9 +26,18 @@
 
 % Format stranky
 \setlength{\parindent}{0pt}												% Odrazka na zacatku noveho odstavce
-\setlength{\parskip}{6pt}												% Radkovani za koncem odstavce
-\linespread{1.15}														% Radkovani
-\geometry{top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm, headheight=14pt} 			% Okraje
+\setlength{\parskip}{6pt}												% Radkovani za koncem odstavce (DOCX after=120 -> 6pt)
+\linespread{1.15}														% Radkovani (DOCX line=276 -> 1.15)
+\geometry{
+    a4paper,
+    top=2.5cm,
+    bottom=2.5cm,
+    left=3.5cm,
+    right=2.5cm,
+    headheight=14pt,
+    headsep=0.75cm,
+    footskip=0.75cm
+}
 
 % Promenne pouzite pro titulni stranku
 \newcommand{\varUniversity}{VYSOKÁ ŠKOLA POLYTECHNICKÁ JIHLAVA}			% Jmeno skoly
@@ -42,29 +51,29 @@
 \newcommand{\varYear}{2026}												% Rok
 
 % Formatovani nadpisu
-\newcommand{\PrvniNadpis}{\fontsize{18}{22}\selectfont}
-\newcommand{\DruhyNadpis}{\fontsize{15}{18}\selectfont}
-\newcommand{\TretiNadpis}{\fontsize{12}{15}\selectfont}
+\newcommand{\PrvniNadpis}{\fontsize{18}{22}\selectfont}                 % DOCX sz=36 -> 18pt
+\newcommand{\DruhyNadpis}{\fontsize{15}{18}\selectfont}                 % DOCX sz=30 -> 15pt
+\newcommand{\TretiNadpis}{\fontsize{12}{15}\selectfont}                 % DOCX sz=24 -> 12pt
 
 \titleformat{\chapter}[block]
   {\normalfont\PrvniNadpis\bfseries}									% format nazvu kapitoly
   {\thechapter}{0.5em}{}												% format cislovani kapitoly
-  \titlespacing*{\chapter}{0pt}{0pt}{0pt}
+  \titlespacing*{\chapter}{0pt}{18pt}{6pt}
 \titleformat{\section}[block]
   {\normalfont\DruhyNadpis\bfseries}									% format nazvu sekce
   {\thesection}{0.5em}{}												% format cislovani sekce
-  \titlespacing*{\section}{0pt}{0pt}{0pt}
+  \titlespacing*{\section}{0pt}{18pt}{6pt}
 \titleformat{\subsection}[block]
   {\normalfont\TretiNadpis\bfseries}									% format nazvu subsekce
   {\thesubsection}{0.5em}{}												% format cislovani subsekce
-  \titlespacing*{\subsection}{0pt}{0pt}{0pt}
+  \titlespacing*{\subsection}{0pt}{18pt}{6pt}
 
 % Formatovani zahlavi a zapati
 \renewcommand{\headrulewidth}{0pt}
-\fancyhead[L]{\textcolor[rgb]{0.5,0.5,0.5}{\varUniversity}}
-\fancyhead[R]{}
-\fancyfoot[C]{\thepage}
-\fancyfoot[R]{}
+\fancyhead[L]{}
+\fancyhead[R]{\textcolor[rgb]{0.5,0.5,0.5}{\textit{\varUniversity}}}
+\fancyfoot[C]{}
+\fancyfoot[R]{\thepage}
 \pagestyle{fancy}
 
 % Nastaveni ceskych uvozovek

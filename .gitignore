@@ -3,6 +3,9 @@ output/
 .tmp_build/
 svg-inkscape/
 
+# Tectonic / local test artifacts
+/tmp/vspj_full/
+
 # Common LaTeX temporary files (if built outside Docker)
 *.aux
 *.fdb_latexmk

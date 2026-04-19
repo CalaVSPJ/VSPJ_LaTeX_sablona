@@ -22,7 +22,6 @@
 \definecolor{darkBlue}{RGB}{0,112,192}
 \usepackage{csquotes}
 \usepackage{tabularx}
-\usepackage[style=authoryear, backend=biber]{biblatex}
 \usepackage{listings}
 \usepackage{setspace}
 \usepackage{svg}
@@ -150,9 +149,3 @@
 \renewcommand{\tablename}{Tab.}
 
 \DeclareQuoteStyle{czech}{„}{"}{‚}{'}
-\setlength{\bibhang}{0pt}
-\DeclareFieldFormat{url}{Dostupné z: \url{#1}}
-\renewbibmacro*{note+url}{\newunit\newblock\printfield{note}\newunit\newblock\printfield{url}\newunit\newblock\printfield{organization}}
-\AtBeginBibliography{\renewcommand*{\mkbibnamefamily}[1]{\MakeUppercase{#1}}}
-
-\addbibresource{src/references.bib}

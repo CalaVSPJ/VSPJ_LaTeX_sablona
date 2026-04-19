@@ -31,9 +31,9 @@ $DOCKER run --rm \
     bash -c "
         (
             apt-get update && \
-            apt-get install -y fontconfig fonts-crosextra-carlito inkscape && \
+            apt-get install -y fontconfig fonts-crosextra-carlito && \
             fc-cache -f && \
-            latexmk -xelatex -interaction=nonstopmode --shell-escape \
+            latexmk -xelatex -interaction=nonstopmode \
             -output-directory=$TEMP_DIR \
             src/prace.tex
         ) > /workspace/$LOG_DIR/build.log 2>&1

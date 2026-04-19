@@ -14,7 +14,8 @@ LaTeXová šablona pro psaní bakalářských a jiných závěrečných prací n
 
 **Lokálně** – vyžaduje [Docker](https://www.docker.com/):
 ```bash
-./build.sh
+./build.sh        # nebo: make build
+make clean        # smaže output/ a dočasné soubory
 ```
 PDF se uloží do `output/`.
 

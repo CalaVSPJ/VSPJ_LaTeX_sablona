@@ -31,12 +31,12 @@ jobs:
         texlive/texlive:latest \
         bash -c "
         apt-get update &&
-        apt-get install -y fontconfig fonts-crosextra-carlito inkscape &&
+        apt-get install -y fontconfig fonts-crosextra-carlito &&
         mkdir -p /workspace/output &&
         chmod -R 777 /workspace/output &&
         chmod -R 777 /workspace/src &&
         fc-cache -f &&
-        latexmk -xelatex -interaction=nonstopmode --shell-escape \
+        latexmk -xelatex -interaction=nonstopmode \
         -output-directory=/workspace/output \
         /workspace/src/prace.tex
         "

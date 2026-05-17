@@ -110,7 +110,9 @@
   {\headingfont\PrvniNadpis\bfseries}
   {}
   {0pt}{}
-\titlespacing*{\chapter}{0pt}{18pt}{6pt}
+% -\topskip eliminuje výchozí mezeru LaTeXu na začátku stránky, 
+% aby horní okraj textu odpovídal přesně 2,5 cm (chování jako ve Wordu).
+\titlespacing*{\chapter}{0pt}{-\topskip}{6pt}
 
 % Podkapitoly číslované — [hang] se zarovnáním na 28.9pt dle DOCX (Nadpis2 indent-left/hanging)
 \titleformat{\section}[hang]

@@ -5,12 +5,12 @@
 
     % Záhlaví titulní strany: 20pt tučně, verzálky, centrováno — dle DOCX Para 1 (sz=20, bold, caps, jc=center)
     \begin{center}
-        {\fontsize{20}{24}\selectfont\bfseries\MakeUppercase{\varUniversity}}
+        {\headingfont\fontsize{20}{24}\selectfont\bfseries\MakeUppercase{\varUniversity}}
     \end{center}
 
     % Program: 14pt, řádkování 1.5× (line=360 dle DOCX Para 2), centrováno
     \begin{center}
-        {\fontsize{14}{21}\selectfont\varProgram}
+        {\headingfont\fontsize{14}{21}\selectfont\varProgram}
     \end{center}
 
     % Mezera odpovídající 9 prázdným řádkům Normal stylu (11pt × 1.15 + 6pt = ~18.65pt × 9 ≈ 168pt)
@@ -18,12 +18,12 @@
 
     % Název práce: 20pt tučně, verzálky, centrováno — dle DOCX Para 12
     \begin{center}
-        {\fontsize{20}{24}\selectfont\bfseries\MakeUppercase{\varThesisName}}
+        {\headingfont\fontsize{20}{24}\selectfont\bfseries\MakeUppercase{\varThesisName}}
     \end{center}
 
-    % Typ práce: 11pt (Normal), centrováno — dle DOCX Para 13 (bez sz override)
+    % Typ práce: 14pt, řádkování 1.5×, centrováno
     \begin{center}
-        {\normalsize\varThesisType}
+        {\headingfont\fontsize{14}{21}\selectfont\varThesisType}
     \end{center}
 
     % Mezera odpovídající 10 prázdným řádkům Normal stylu (~18.65pt × 10 ≈ 187pt)
@@ -32,8 +32,8 @@
     % Autor a vedoucí: 14pt, 1.5× řádkování, zarovnáno vlevo — dle DOCX Para 24/25
     % Tab stop na 1985 twips = 99.25pt od levého okraje textu
     \begin{flushleft}
-        {\fontsize{14}{21}\selectfont\noindent
-        \makebox[99.25pt][l]{Autor práce:}\varAuthor\\[0pt]
+        {\headingfont\fontsize{14}{21}\selectfont\noindent
+        \makebox[99.25pt][l]{Autor práce:}\varAuthor\\[6pt]
         \makebox[99.25pt][l]{Vedoucí práce:}\varTutor
         }
     \end{flushleft}
@@ -41,7 +41,7 @@
     % Město a rok: na spodní části stránky 1 — dle DOCX
     \vfill
     \begin{center}
-        {\fontsize{14}{21}\selectfont\varCity\ \varYear}
+        {\headingfont\fontsize{14}{21}\selectfont\varCity\ \varYear}
     \end{center}
 
 \end{titlepage}

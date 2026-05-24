@@ -1,6 +1,17 @@
 % Nastavení šablony — balíčky, styl stránky, nadpisy, barvy, proměnné
 \usepackage{fontspec}
-\setmainfont{Carlito}
+
+\IfFontExistsTF{Calibri}{
+  \setmainfont{Calibri}
+}{
+  \setmainfont{Carlito}
+}
+
+\IfFontExistsTF{Calibri Light}{
+  \newfontfamily{\headingfont}{Calibri Light}
+}{
+  \newfontfamily{\headingfont}{Carlito}
+}
 
 \usepackage[czech]{babel}
 \usepackage{graphicx}
@@ -91,31 +102,33 @@
 
 % Kapitoly číslované — [hang] se zarovnáním na 21.55pt dle DOCX (Nadpis1 indent-left/hanging)
 \titleformat{\chapter}[hang]
-  {\normalfont\PrvniNadpis\bfseries}
+  {\headingfont\PrvniNadpis\bfseries}
   {\makebox[21.55pt][l]{\thechapter}}
   {0pt}{}
 % Kapitoly nečíslované — bez odsazení (styl Nzev/Title v DOCX)
 \titleformat{name=\chapter,numberless}[block]
-  {\normalfont\PrvniNadpis\bfseries}
+  {\headingfont\PrvniNadpis\bfseries}
   {}
   {0pt}{}
-\titlespacing*{\chapter}{0pt}{18pt}{6pt}
+% -\topskip eliminuje výchozí mezeru LaTeXu na začátku stránky, 
+% aby horní okraj textu odpovídal přesně 2,5 cm (chování jako ve Wordu).
+\titlespacing*{\chapter}{0pt}{-\topskip}{6pt}
 
 % Podkapitoly číslované — [hang] se zarovnáním na 28.9pt dle DOCX (Nadpis2 indent-left/hanging)
 \titleformat{\section}[hang]
-  {\normalfont\DruhyNadpis\bfseries}
+  {\headingfont\DruhyNadpis\bfseries}
   {\makebox[28.9pt][l]{\thesection}}
   {0pt}{}
 % Podkapitoly nečíslované
 \titleformat{name=\section,numberless}[block]
-  {\normalfont\DruhyNadpis\bfseries}
+  {\headingfont\DruhyNadpis\bfseries}
   {}
   {0pt}{}
 \titlespacing*{\section}{0pt}{18pt}{6pt}
 
 % Oddíly (Nadpis3) — bez hanging indent dle DOCX
 \titleformat{\subsection}[block]
-  {\normalfont\TretiNadpis\bfseries}
+  {\headingfont\TretiNadpis\bfseries}
   {\thesubsection}{0.5em}{}
 \titlespacing*{\subsection}{0pt}{18pt}{6pt}
 
@@ -123,7 +136,7 @@
 % Používá se pro Klíčová slova, Abstract, Keywords uvnitř stránky Abstraktu
 \newcommand{\nzev}[1]{%
   \par\vspace{18pt}%
-  {\normalfont\PrvniNadpis\bfseries #1\par}%
+  {\headingfont\PrvniNadpis\bfseries #1\par}%
   \vspace{6pt}%
 }
 

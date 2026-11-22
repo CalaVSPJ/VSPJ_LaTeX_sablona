@@ -19,6 +19,11 @@ make clean        # smaže output/ a dočasné soubory
 ```
 PDF se uloží do `output/`.
 
+## Kontrola práce
+
+Hotové PDF můžeš nechat zkontrolovat podle pravidel VŠPJ skillem pro Claude Code —
+návod je v [`.claude/skills/kontrola-prace/README.md`](.claude/skills/kontrola-prace/README.md).
+
 ## Struktura repozitáře
 
 ```
@@ -26,6 +31,8 @@ PDF se uloží do `output/`.
 │   ├── conf/       ← nastavení šablony a proměnné (jméno, název práce…)
 │   └── img/        ← obrázky a grafy vložené do práce
 ├── Dokumenty/      ← oficiální vzor VŠPJ (neupravuj)
+├── .claude/skills/ ← skill Claude Code pro kontrolu práce (viz .claude/skills/kontrola-prace/README.md)
+├── .claude/agents/ ← subagent, kterému skill předává kontrolu jednotlivých částí
 ├── docs/           ← pravidla závěrečné práce a dokumentace (viz docs/README.md)
 ├── Verze/          ← PDF generované při každém push
 └── output/         ← PDF z lokální kompilace

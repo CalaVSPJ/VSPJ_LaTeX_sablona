@@ -47,6 +47,12 @@ jobs:
         /workspace/src/prace.tex
         "
 
+    - name: Upload PDF as artifact
+      uses: actions/upload-artifact@v4                                                  # PDF ke stažení u každého běhu (i u PR)
+      with:
+        name: prace-pdf
+        path: output/prace.pdf
+
     - name: Commit and push compiled PDF
       if: github.event_name == 'push'
       run: |

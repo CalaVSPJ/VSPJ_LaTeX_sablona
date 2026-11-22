@@ -19,6 +19,22 @@ make clean        # smaže output/ a dočasné soubory
 ```
 PDF se uloží do `output/`.
 
+**Rychlý náhled bez Dockeru** – vyžaduje [tectonic](https://tectonic-typesetting.github.io/) a font Carlito:
+```bash
+make fast         # → output/prace.pdf, log v output/logs/build.log
+```
+Tectonic má vlastní sadu balíků, výsledek se proto může drobně lišit. Rozhodující je PDF z GitHub Actions nebo z `./build.sh`.
+
+## Aktualizace šablony ve vlastní práci
+
+Šablona se průběžně opravuje. Novou verzi si stáhneš do své práce přes git — funguje to u forku i u soukromé kopie (GitHub nedovolí soukromý fork veřejného repozitáře; soukromou kopii vytvoříš tak, že šablonu naklonuješ a pushneš do nového soukromého repozitáře, historie zůstane společná):
+```bash
+git remote add sablona https://github.com/CalaVSPJ/VSPJ_LaTeX_sablona.git   # jednou
+git fetch sablona
+git merge sablona/main
+```
+Konflikty vzniknou tam, kde šablona změnila vzorový text, který jsi už nahradil(a) svým. Pravidlo: **formát ze šablony, obsah tvůj** — v `src/conf/settings.sty` si nech své proměnné, v kapitolách, literatuře a seznamech svůj text, ale převezmi nová makra a nastavení (např. `\zkratka`, `\nadpisOddilu`). Po sloučení sestav PDF a zkontroluj ho (viz Kontrola práce).
+
 ## Kontrola práce
 
 Hotové PDF můžeš nechat zkontrolovat podle pravidel VŠPJ skillem pro Claude Code —

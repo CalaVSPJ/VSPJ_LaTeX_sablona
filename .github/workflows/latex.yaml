@@ -17,6 +17,10 @@ on:
 permissions:
   contents: write                                                                       # Potřebné pro pushnutí PDF zpět do repo
 
+concurrency:
+  group: latex-${{ github.ref }}                                                        # Jen jeden build na větev
+  cancel-in-progress: true                                                              # Novější push zruší rozběhnutý build
+
 jobs:
   build:
     runs-on: ubuntu-latest                                                              # GitHub runner
@@ -62,4 +66,5 @@ jobs:
         cp output/prace.pdf Verze/prace_"${timestamp}".pdf                             # Kopie
         git add Verze/prace_"${timestamp}".pdf                                         # Přidání do git
         git commit -m "Automated PDF compilation and deployment [skip ci]"             # Commit
+        git pull --rebase origin main                                                  # Mezitím mohl přibýt další commit
         git push origin main                                                           # Push zpět do main

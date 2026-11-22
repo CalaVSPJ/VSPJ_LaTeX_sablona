@@ -66,5 +66,5 @@ jobs:
         cp output/prace.pdf Verze/prace_"${timestamp}".pdf                             # Kopie
         git add Verze/prace_"${timestamp}".pdf                                         # Přidání do git
         git commit -m "Automated PDF compilation and deployment [skip ci]"             # Commit
-        git pull --rebase origin main                                                  # Mezitím mohl přibýt další commit
+        git pull --rebase --autostash origin main                                      # Mezitím mohl přibýt commit; autostash kvůli chmod v src
         git push origin main                                                           # Push zpět do main

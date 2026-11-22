@@ -6,11 +6,13 @@ on:
       - main                                                                            # Spustí se při pushi do main
     paths:
       - 'src/**'                                                                        # pouze změny ve složce src
+      - '.github/workflows/latex.yaml'                                                  # a změny tohoto workflow
   pull_request:
     branches:
       - main                                                                            # Spustí se při PR do main
     paths:
       - 'src/**'                                                                        # pouze změny ve složce src
+      - '.github/workflows/latex.yaml'                                                  # a změny tohoto workflow
 
 permissions:
   contents: write                                                                       # Potřebné pro pushnutí PDF zpět do repo
@@ -22,6 +24,10 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4                                                         # Stáhne repo do runneru
+      with:
+        # Deploy key s právem zápisu — v původním repu obchází ruleset na main (push PDF).
+        # Ve forku secret neexistuje → prázdná hodnota → checkout použije běžný GITHUB_TOKEN.
+        ssh-key: ${{ secrets.DEPLOY_KEY }}
 
     - name: Compile LaTeX with latexmk
       run: |

@@ -3,6 +3,7 @@
 | Složka | K čemu slouží |
 |---|---|
 | [pravidla/](pravidla/README.md) | Pravidla závěrečné práce VŠPJ — formální (písmo, mezery, číslování…) i obsahová (co má obsahovat úvod, závěr, abstrakt…), každé se zdrojem. Podklad pro kontrolní skill i pro ruční kontrolu práce. |
+| [../.claude/skills/kontrola-prace/](../.claude/skills/kontrola-prace/README.md) | Kontrolní skill pro Claude Code — zkontroluje PDF práce podle těchto pravidel. |
 | [superpowers/specs/](superpowers/specs/) | Návrhy: proč pravidla vznikla, co do nich patří a co ne, jak se řeší rozpory mezi zdroji. |
 | [superpowers/plans/](superpowers/plans/) | Plány, podle kterých se pravidla sepisovala. |
 

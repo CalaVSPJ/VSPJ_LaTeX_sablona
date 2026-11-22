@@ -25,3 +25,6 @@ svg-inkscape/
 # Python
 __pycache__/
 .pytest_cache/
+
+# Python (virtuální prostředí pro skill)
+.venv

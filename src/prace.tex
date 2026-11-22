@@ -4,28 +4,39 @@
 
 \begin{document}
 
-    % Přední část — bez záhlaví, číslo stránky vpravo
+    % Stránky se počítají od titulní strany, číslo se zobrazuje jen od Úvodu
+    % po Seznam literatury (dle DOCX).
     \pagestyle{fancy}
     \fancyhead{}
-    \fancyfoot[C]{}
-    \fancyfoot[R]{\thepage}
+    \fancyfoot{}
 
     \input{src/title_page}
+    % titlepage v report.cls vrací počítadlo na 1 — zadání je ale 2. strana
+    \setcounter{page}{2}
     \input{src/zadani}
     \input{src/abstrakt}
     \input{src/prohlaseni}
     \input{src/podekovani}
 
     \newpage
-    % Hlavní část — záhlaví s názvem školy dle DOCX (barva #808080, kurzíva)
+    % Od Obsahu dál záhlaví s názvem školy dle DOCX (barva #808080, kurzíva)
     \fancyhead[C]{\textcolor[HTML]{808080}{\textit{Vysoká škola polytechnická Jihlava}}}
 
     \input{src/obsah}
     \input{src/seznamy}
+
+    \clearpage
+    % Hlavní část — číslo stránky vpravo
+    \fancyfoot[R]{\thepage}
+
     \input{src/uvod}
     \input{src/text}
     \input{src/zaver}
     \input{src/seznam_literatury}
+
+    \clearpage
+    % Přílohy — záhlaví zůstává, číslo stránky se nezobrazuje (dle DOCX)
+    \fancyfoot[R]{}
     \input{src/prilohy}
 
 \end{document}

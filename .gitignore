@@ -21,3 +21,7 @@ svg-inkscape/
 *.blg
 *.run.xml
 *.xdv
+
+# Python
+__pycache__/
+.pytest_cache/

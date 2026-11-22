@@ -40,9 +40,10 @@
     {\centering\headingfont\fontsize{14}{17.09}\selectfont\varThesisType\par}
     \vspace{6pt}
 
-    % 10 prázdných odstavců (10 × 23,17 pt); u delšího názvu práce se mezera
-    % zmenší, aby autor, vedoucí i místo zůstali na titulní straně
-    \vspace{231.7pt minus 150pt}
+    % 10 prázdných odstavců (10 × 23,17 pt) ve Wordu; zde pružná mezera — autor,
+    % vedoucí a místo jsou ukotvené od spodního okraje (\vspace* na konci), takže
+    % zůstanou na stejném místě i u víceřádkového názvu práce (TIT-F07, TIT-F08)
+    \vfill
 
     % Autor a vedoucí: 14pt, řádkování 1,5 (posun 8,59 pt jako u programu), zarovnáno vlevo,
     % tabulátor na 1985 twips = 99,25 pt od levého okraje textu
@@ -57,5 +58,6 @@
 
     % Město a rok: 14pt, centrováno — hned pod vedoucím, ne u spodního okraje
     {\centering\headingfont\fontsize{14}{17.09}\selectfont\varCity\ \varYear\par}
+    \vspace*{18pt}% od spodního okraje textu: „Jihlava RRRR“ s horní hranou 743 pt jako ve Wordu
 
 \end{titlepage}

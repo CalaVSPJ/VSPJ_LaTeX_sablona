@@ -4,8 +4,8 @@
 
 \begin{document}
 
-    % Stránky se počítají od titulní strany, číslo se zobrazuje jen od Úvodu
-    % po Seznam literatury (dle DOCX).
+    % Stránky se počítají od titulní strany, číslo se zobrazuje od Obsahu
+    % po Seznam literatury (Jak psát práce na VŠPJ, kap. 12 a 13).
     \pagestyle{fancy}
     \fancyhead{}
     \fancyfoot{}
@@ -20,22 +20,19 @@
 
     \newpage
     % Od Obsahu dál záhlaví s názvem školy dle DOCX (barva #808080, kurzíva)
+    % a číslo stránky vpravo — první číslovaná stránka je Obsah (zpravidla 6)
     \fancyhead[C]{\textcolor[HTML]{808080}{\textit{Vysoká škola polytechnická Jihlava}}}
+    \fancyfoot[R]{\thepage}
 
     \input{src/obsah}
     \input{src/seznamy}
-
-    \clearpage
-    % Hlavní část — číslo stránky vpravo
-    \fancyfoot[R]{\thepage}
-
     \input{src/uvod}
     \input{src/text}
     \input{src/zaver}
     \input{src/seznam_literatury}
 
     \clearpage
-    % Přílohy — záhlaví zůstává, číslo stránky se nezobrazuje (dle DOCX)
+    % Přílohy — záhlaví zůstává, stránky s přílohami se nečíslují
     \fancyfoot[R]{}
     \input{src/prilohy}
 

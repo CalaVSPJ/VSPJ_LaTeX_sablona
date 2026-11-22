@@ -1,18 +1,19 @@
-% Nastavení pro extrémně těsný Obsah
 \setcounter{tocdepth}{1}
 
-\chapter*{Obsah}
+\nadpisOddilu{Obsah}
 
-\begin{spacing}{0.1}
 {\color{darkBlue}
 Do Obsahu jsou zahrnuty všechny seznamy, kapitoly a podkapitoly, přílohová část; Obsah neobsahuje „sám sebe” a první strany práce před samotným obsahem. V obsahu zobrazte pouze nadpisy prvních dvou úrovní.
 
 Aktualizaci obsahu provedete klávesu F9 po umístění kurzoru do textu Obsahu.
 }
 
+% Položky jako ve Wordu (Obsah1/Obsah2: bez mezery za odstavcem); 9 pt nad nimi dle exportu z Wordu
+\vspace{9pt}
+{\setlength{\parskip}{0pt}
 \makeatletter
 \@starttoc{toc}
 \makeatother
-\end{spacing}
+\par}
 
 \pagebreak

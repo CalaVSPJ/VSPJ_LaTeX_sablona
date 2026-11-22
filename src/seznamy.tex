@@ -1,28 +1,30 @@
-\chapter*{Seznam obrázků}
+\nadpisOddilu{Seznam obrázků}
 \addcontentsline{toc}{chapter}{Seznam obrázků}
 
-\begin{spacing}{0.1}
 {\color{infoBlue}
 Seznam obrázků se v práci objeví za obsahem, když v práci bude pět a více obrázků. Aktualizaci seznamu provedete klávesou F9 po umístění kurzoru do textu Obsahu.
 }
 
+% Položky jako ve Wordu (Obsah1/Obsah2/Seznam obrázků: bez mezery za odstavcem)
+{\setlength{\parskip}{0pt}
 \makeatletter
 \@starttoc{lof}
 \makeatother
-\end{spacing}
+\par}
 
 \chapter*{Seznam tabulek}
 \addcontentsline{toc}{chapter}{Seznam tabulek}
 
-\begin{spacing}{0.1}
 {\color{infoBlue}
 Seznam tabulek se v práci objeví zde, když v práci bude pět a více tabulek. Aktualizaci seznamu provedete klávesou F9 po umístění kurzoru do textu Obsahu.
 }
 
+% Položky jako ve Wordu (Obsah1/Obsah2/Seznam obrázků: bez mezery za odstavcem)
+{\setlength{\parskip}{0pt}
 \makeatletter
 \@starttoc{lot}
 \makeatother
-\end{spacing}
+\par}
 
 \chapter*{Seznam zkratek}
 \addcontentsline{toc}{chapter}{Seznam zkratek}
@@ -31,16 +33,13 @@ Seznam tabulek se v práci objeví zde, když v práci bude pět a více tabulek
 Seznam zkratek, které nejsou běžné, se zpravidla uvádí na samostatnou stránku.
 }
 
-% Tab stop na 70.9pt (2.5cm) dle DOCX indent-left/hanging=70.90pt
-\begin{tabbing}
-    \hspace{2.5cm} \= \kill
-    ČR \> Česká republika \\
-    ČSN \> Česká státní norma \\
-    ČSÚ \> Český statistický úřad \\
-    IS \> Informační systém \\
-    NATO \> North Atlantic Treaty Organization (Severoatlantická aliance) \\
-    OSN \> Organizace spojených národů \\
-    VŠPJ \> Vysoká škola polytechnická Jihlava
-\end{tabbing}
+% Každá zkratka: \zkratka{zkratka}{význam}
+\zkratka{ČR}{Česká republika}
+\zkratka{ČSN}{Česká státní norma}
+\zkratka{ČSÚ}{Český statistický úřad}
+\zkratka{IS}{Informační systém}
+\zkratka{NATO}{North Atlantic Treaty Organization (Severoatlantická aliance)}
+\zkratka{OSN}{Organizace spojených národů}
+\zkratka{VŠPJ}{Vysoká škola polytechnická Jihlava}
 
 \pagebreak

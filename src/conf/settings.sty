@@ -1,16 +1,21 @@
 % Nastavení šablony — balíčky, styl stránky, nadpisy, barvy, proměnné
 \usepackage{fontspec}
 
+% Ligatures=NoCommon: Word ve výchozím stavu nesází ligatury (např. „ti“ v Carlito/Calibri)
 \IfFontExistsTF{Calibri}{
-  \setmainfont{Calibri}
+  \setmainfont{Calibri}[Ligatures=NoCommon]
 }{
-  \setmainfont{Carlito}
+  \setmainfont{Carlito}[Ligatures=NoCommon]
 }
 
+% Nadpisy jsou v DOCX „tučné Calibri Light“. Calibri Light nemá tučný řez, Word tučnost
+% dopočítá — výsledek vypadá zhruba jako běžné Calibri. Proto: s Calibri Light dopočítat
+% tučnost (FakeBold), bez něj použít Carlito v běžném řezu s lehce dopočítanou tučností
+% (FakeBold=0.3 — hustota tahů změřená proti exportu z Wordu; Carlito Bold je výrazně těžší).
 \IfFontExistsTF{Calibri Light}{
-  \newfontfamily{\headingfont}{Calibri Light}
+  \newfontfamily{\headingfont}{Calibri Light}[Ligatures=NoCommon, BoldFont={Calibri Light}, BoldFeatures={FakeBold=1.5}]
 }{
-  \newfontfamily{\headingfont}{Carlito}
+  \newfontfamily{\headingfont}{Carlito}[Ligatures=NoCommon, BoldFont={Carlito}, BoldFeatures={FakeBold=0.3}]
 }
 
 \usepackage[czech]{babel}
@@ -23,6 +28,7 @@
 \usepackage{hyperref}
 \hypersetup{hidelinks}
 \usepackage{xurl}
+\urlstyle{same}  % URL v textu a literatuře stejným písmem jako text (jako ve Wordu)
 \usepackage{geometry}
 \usepackage[useregional]{datetime2}
 \usepackage{tocloft}
@@ -51,7 +57,8 @@
 \setlength{\cftafterloftitleskip}{10pt}
 \setlength{\cftbeforelottitleskip}{0pt}
 \setlength{\cftafterlottitleskip}{10pt}
-\renewcommand{\cftdotsep}{1}
+% Tečky těsně za sebou jako ve Wordu
+\renewcommand{\cftdotsep}{0}
 \setlength{\cftchapnumwidth}{1.5em}
 % Tečky i u kapitol dle DOCX (Obsah1: leader="dot")
 \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
@@ -113,9 +120,16 @@
   {\headingfont\PrvniNadpis\bfseries}
   {}
   {0pt}{}
-% -\topskip eliminuje výchozí mezeru LaTeXu na začátku stránky, 
-% aby horní okraj textu odpovídal přesně 2,5 cm (chování jako ve Wordu).
-\titlespacing*{\chapter}{0pt}{-\topskip}{6pt}
+% Nadpis 1 v DOCX: 18 pt před (na začátku stránky ho Word vynechá), 6 pt za.
+% Hodnoty níže jsou kalibrované proti exportu z Wordu — LaTeX počítá výšku řádku
+% nadpisu jinak (\topskip, \linespread), takže 0 / 6 pt by nadpis posunuly níž.
+\newlength{\nadpisNahore}
+\setlength{\nadpisNahore}{-24.5pt}  % −24,5 = −\topskip (11 pt) − 13,5 pt
+\titlespacing*{\chapter}{0pt}{\nadpisNahore}{3.4pt}
+% Na první stránce nového oddílu (Obsah, Seznam obrázků, Úvod, Přílohy) Word mezeru
+% před nadpisem nevynechá → nadpis je o ~10,5 pt níž. Použití: \nadpisOddilu{Úvod}
+\newcommand{\nadpisOddilu}[1]{%
+  \setlength{\nadpisNahore}{-14pt}\chapter*{#1}\setlength{\nadpisNahore}{-24.5pt}}
 
 % Podkapitoly číslované — [hang] se zarovnáním na 28.9pt dle DOCX (Nadpis2 indent-left/hanging)
 \titleformat{\section}[hang]
@@ -127,21 +141,30 @@
   {\headingfont\DruhyNadpis\bfseries}
   {}
   {0pt}{}
-\titlespacing*{\section}{0pt}{18pt}{6pt}
+% Nadpis 2 v DOCX: 18 pt před, 6 pt za (kalibrováno proti exportu z Wordu)
+\titlespacing*{\section}{0pt}{10.5pt}{2pt}
 
 % Oddíly (Nadpis3) — bez hanging indent dle DOCX
 \titleformat{\subsection}[block]
   {\headingfont\TretiNadpis\bfseries}
   {\thesubsection}{0.5em}{}
-\titlespacing*{\subsection}{0pt}{18pt}{6pt}
+% Nadpis 3 v DOCX: 18 pt před, 6 pt za (kalibrováno proti exportu z Wordu)
+\titlespacing*{\subsection}{0pt}{11.2pt}{0.2pt}
 
 % Nadpis stylu "Nzev" — 18pt tučně, 18pt před, 6pt po, BEZ zalomení stránky
 % Používá se pro Klíčová slova, Abstract, Keywords uvnitř stránky Abstraktu
+% (v DOCX 18 pt před a 6 pt za; hodnoty kalibrované proti exportu z Wordu)
 \newcommand{\nzev}[1]{%
-  \par\vspace{18pt}%
+  \par\vspace{8.8pt}%
   {\headingfont\PrvniNadpis\bfseries #1\par}%
-  \vspace{6pt}%
+  \vspace{3pt}%
 }
+
+% Řádek seznamu zkratek — v DOCX odstavec s předsazením 2,5 cm (1418 twips),
+% tabulátorem a mezerou 8 pt za odstavcem. Použití: \zkratka{ČR}{Česká republika}
+\newcommand{\zkratka}[2]{%
+  \par{\setlength{\parskip}{8pt}\hangindent=70.9pt\hangafter=1
+  \noindent\makebox[70.9pt][l]{#1}#2\par}}
 
 % Typografie dle „Jak psát práce na VŠPJ“ (kap. 1.3 a 4.5)
 \clubpenalty=10000          % žádní sirotci (osamocený první řádek odstavce dole na stránce)
@@ -166,7 +189,11 @@
 
 \counterwithout{figure}{chapter}
 \counterwithout{table}{chapter}
-\renewcommand{\figurename}{Obr.}
-\renewcommand{\tablename}{Tab.}
+\counterwithout{equation}{chapter}  % rovnice (1), (2)… jako ve Wordu, ne (2.1)
+% babel při \begin{document} nastaví „Obrázek“/„Tabulka“ — přepsat přes \captionsczech
+\addto\captionsczech{%
+  \renewcommand{\figurename}{Obr.}%
+  \renewcommand{\tablename}{Tab.}%
+}
 
 \DeclareQuoteStyle{czech}{„}{"}{‚}{'}

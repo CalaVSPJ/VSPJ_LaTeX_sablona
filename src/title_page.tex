@@ -1,47 +1,61 @@
 % Strana 1 titulní strany
+% Napodobuje odstavce z DOCX: písmo Calibri Light, jednoduché řádkování
+% (výška řádku ≈ 1,2264 × velikost písma — změřeno z exportu Wordu),
+% 6 pt za odstavcem (styl Normální). Prázdný 14pt odstavec = 17,17 + 6 = 23,17 pt.
+% Word klade účaří do vzdálenosti (spodek písma předchozího řádku + horní část
+% písma dalšího): horní část = 0,952 × velikost, spodek = 0,269 × velikost.
+% LaTeX bere jen \baselineskip dalšího řádku, proto korekce při změně velikosti:
+%   20pt → 14pt: 5,38 + 13,33 − 17,09 = +1,62 pt
+%   14pt → 20pt: 3,77 + 19,04 − 24,41 = −1,60 pt
 \begin{titlepage}
     \thispagestyle{empty}
     \setlength{\parskip}{0pt}
+    \setlength{\parindent}{0pt}
+    % výšky řádků níže jsou přesné hodnoty z Wordu — bez globálního \linespread{1.15}
+    \linespread{1}
 
-    % Záhlaví titulní strany: 20pt tučně, verzálky, centrováno — dle DOCX Para 1 (sz=20, bold, caps, jc=center)
-    \begin{center}
-        {\headingfont\fontsize{20}{24}\selectfont\bfseries\MakeUppercase{\varUniversity}}
-    \end{center}
+    % Název školy: 20pt tučně, verzálky, centrováno.
+    % Podpěra 42,13 pt = 1 prázdný odstavec nad ním + horní část 20pt písma;
+    % účaří tak leží přesně jako ve Wordu, nezávisle na diakritice.
+    % (\vspace* na začátku stránky by přidal ještě nežádoucí mezeru.)
+    {\centering\headingfont\fontsize{20}{24.41}\selectfont\bfseries
+     \rule{0pt}{42.63pt}\MakeUppercase{\varUniversity}\par}
+    \vspace{6pt}
 
-    % Program: 14pt, řádkování 1.5× (line=360 dle DOCX Para 2), centrováno
-    \begin{center}
-        {\headingfont\fontsize{14}{21}\selectfont\varProgram}
-    \end{center}
+    % Studijní program: 14pt, řádkování 1,5 (25,76 pt), bez mezery za odstavcem.
+    % Word dává přídavek řádkování 1,5 (8,59 pt) pod řádek, LaTeX nad něj → posun.
+    \vspace{\dimexpr -8.59pt+1.62pt\relax}% + přechod 20pt → 14pt
+    {\centering\headingfont\fontsize{14}{25.76}\selectfont\varProgram\par}
+    \vspace{8.59pt}
 
-    % Mezera odpovídající 9 prázdným řádkům Normal stylu (11pt × 1.15 + 6pt = ~18.65pt × 9 ≈ 168pt)
-    \vspace{168pt}
+    % 9 prázdných odstavců (9 × 23,17 pt) + přechod 14pt → 20pt
+    \vspace{\dimexpr 208.53pt-1.60pt\relax}
 
-    % Název práce: 20pt tučně, verzálky, centrováno — dle DOCX Para 12
-    \begin{center}
-        {\headingfont\fontsize{20}{24}\selectfont\bfseries\MakeUppercase{\varThesisName}}
-    \end{center}
+    % Název práce: 20pt tučně, verzálky, centrováno (delší název se zalomí jako ve Wordu)
+    {\centering\headingfont\fontsize{20}{24.41}\selectfont\bfseries
+     \MakeUppercase{\varThesisName}\par}
+    \vspace{\dimexpr 6pt+1.62pt\relax}% + přechod 20pt → 14pt
 
-    % Typ práce: 14pt, řádkování 1.5×, centrováno
-    \begin{center}
-        {\headingfont\fontsize{14}{21}\selectfont\varThesisType}
-    \end{center}
+    % Typ práce: 14pt
+    {\centering\headingfont\fontsize{14}{17.09}\selectfont\varThesisType\par}
+    \vspace{6pt}
 
-    % Mezera odpovídající 10 prázdným řádkům Normal stylu (~18.65pt × 10 ≈ 187pt)
-    \vspace{187pt}
+    % 10 prázdných odstavců (10 × 23,17 pt); u delšího názvu práce se mezera
+    % zmenší, aby autor, vedoucí i místo zůstali na titulní straně
+    \vspace{231.7pt minus 150pt}
 
-    % Autor a vedoucí: 14pt, 1.5× řádkování, zarovnáno vlevo — dle DOCX Para 24/25
-    % Tab stop na 1985 twips = 99.25pt od levého okraje textu
-    \begin{flushleft}
-        {\headingfont\fontsize{14}{21}\selectfont\noindent
-        \makebox[99.25pt][l]{Autor práce:}\varAuthor\\[6pt]
-        \makebox[99.25pt][l]{Vedoucí práce:}\varTutor
-        }
-    \end{flushleft}
+    % Autor a vedoucí: 14pt, řádkování 1,5 (posun 8,59 pt jako u programu), zarovnáno vlevo,
+    % tabulátor na 1985 twips = 99,25 pt od levého okraje textu
+    \vspace{-8.59pt}
+    {\headingfont\fontsize{14}{25.76}\selectfont
+     \makebox[99.25pt][l]{Autor práce:}\varAuthor\par
+     \makebox[99.25pt][l]{Vedoucí práce:}\varTutor\par}
+    \vspace{8.59pt}
 
-    % Město a rok: na spodní části stránky 1 — dle DOCX
-    \vfill
-    \begin{center}
-        {\headingfont\fontsize{14}{21}\selectfont\varCity\ \varYear}
-    \end{center}
+    % 2 prázdné odstavce (2 × 23,17 pt)
+    \vspace{46.34pt}
+
+    % Město a rok: 14pt, centrováno — hned pod vedoucím, ne u spodního okraje
+    {\centering\headingfont\fontsize{14}{17.09}\selectfont\varCity\ \varYear\par}
 
 \end{titlepage}

@@ -39,6 +39,7 @@
 % #0070C0 — TOC / heading-level instruction text
 \definecolor{darkBlue}{RGB}{0,112,192}
 \usepackage{csquotes}
+\usepackage{etoolbox}  % \ifdefstring — tvary typu práce v prohlášení
 \usepackage{tabularx}
 \usepackage{listings}
 \usepackage{setspace}
@@ -96,7 +97,7 @@
 % =========================================================
 \newcommand{\varUniversity}{Vysoká škola polytechnická Jihlava}
 \newcommand{\varProgram}{Studijní program}              % název studijního programu
-\newcommand{\varThesisType}{Bakalářská práce}           % typ práce
+\newcommand{\varThesisType}{Bakalářská práce}           % typ práce: Bakalářská práce / Diplomová práce
 \newcommand{\varThesisName}{Název práce}                % celý název práce
 
 \newcommand{\varAuthor}{Jméno Příjmení}                 % autor: jméno a příjmení

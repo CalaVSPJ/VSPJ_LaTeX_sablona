@@ -8,7 +8,7 @@ Jedinou částí, do které zasahuješ, jsou proměnné na začátku souboru:
 
 ```latex
 \newcommand{\varProgram}{Studijní program}            % název studijního programu
-\newcommand{\varThesisType}{Bakalářská práce}         % typ práce
+\newcommand{\varThesisType}{Bakalářská práce}         % Bakalářská práce / Diplomová práce
 \newcommand{\varThesisName}{Název práce}              % celý název tvé práce
 \newcommand{\varAuthor}{Jméno Příjmení}               % tvoje jméno a příjmení
 \newcommand{\varTutor}{titul Jméno Příjmení, titul}   % vedoucí práce včetně titulů
@@ -17,3 +17,5 @@ Jedinou částí, do které zasahuješ, jsou proměnné na začátku souboru:
 ```
 
 Tyto hodnoty se automaticky propíší na titulní stranu, do prohlášení a dalších částí dokumentu – vyplníš je jednou a v celé práci se aktualizují samy.
+
+Typ práce napiš přesně jako `Bakalářská práce`, nebo `Diplomová práce` — podle něj se v prohlášení doplní správné tvary (např. „na mou diplomovou práci“).

@@ -21,7 +21,9 @@
     \newpage
     % Od Obsahu dál záhlaví s názvem školy dle DOCX (barva #808080, kurzíva)
     % a číslo stránky vpravo — první číslovaná stránka je Obsah (zpravidla 6)
-    \fancyhead[C]{\textcolor[HTML]{808080}{\textit{Vysoká škola polytechnická Jihlava}}}
+    % na středovém tabulátoru 226,8 pt od levého okraje textu (styl Záhlaví v DOCX),
+    % tj. o ≈ 14 pt vpravo od středu textové plochy
+    \fancyhead[L]{\hspace*{226.8pt}\makebox[0pt][c]{\textcolor[HTML]{808080}{\textit{Vysoká škola polytechnická Jihlava}}}}
     \fancyfoot[R]{\thepage}
 
     \input{src/obsah}

@@ -13,14 +13,9 @@ Rok na titulní straně je pole `TIME \@ "yyyy"` — Word ho při otevření př
 
 Původní Sablona.docx (verze 2022) byla stáhnuta [zde](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiW29fFzvmTAxXe8LsIHUn4OZ4QFnoECA4QAQ&url=https%3A%2F%2Fkcr.vspj.cz%2Fcs%2Fsoubor%2Fstahnout%2Fb9e7c558-9270-4842-b13a-79274952bbf0&usg=AOvVaw3om2A0JcYnforHAd5Khiho&opi=89978449)
 
-Následně byla konvertována pomocí příkazu
-```
-libreoffice --headless --convert-to pdf Sablona.docx
-```
-alternativně (Nemusí zachovat formátování správně)
-```
-pandoc Sablona.docx -o Sablona.pdf
-```
+`Sablona.pdf` je export z **Word Online** (Soubor → Stáhnout jako PDF), takže obsahuje skutečná písma Calibri a Calibri Light.
+
+Převod přes LibreOffice (`libreoffice --headless --convert-to pdf Sablona.docx`) se nedoporučuje: Calibri sice nahradí metricky shodným Carlito, ale pro Calibri Light (nadpisy) náhradu nemá a použije patkové písmo — nadpisy pak vypadají jinak a titulní strana se rozteče na dvě stránky.
 
 ## ❗Důležité❗
 

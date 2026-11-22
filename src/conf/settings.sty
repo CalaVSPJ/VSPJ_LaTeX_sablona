@@ -47,7 +47,9 @@
 \usepackage{hanging}
 
 % Globální nastavení seznamů — těsné řádkování dle DOCX (indent 36pt = 1.27cm)
-\setlist{nosep, itemsep=0pt, parsep=0pt, partopsep=0pt, topsep=0pt, leftmargin=36pt}
+% Výčty dle DOCX: odrážka/číslo na 18 pt od okraje, text na 36 pt (VYC-F02)
+\setlist{nosep, itemsep=0pt, parsep=0pt, partopsep=0pt, topsep=0pt, leftmargin=36pt,
+  labelindent=18pt, labelwidth=18pt, labelsep=0pt, align=left}
 
 % Nastavení Obsahu (TOC), Seznamu obrázků a tabulek
 \setlength{\cftbeforechapskip}{0pt}
@@ -60,9 +62,12 @@
 \setlength{\cftafterlottitleskip}{10pt}
 % Tečky těsně za sebou jako ve Wordu
 \renewcommand{\cftdotsep}{0}
-\setlength{\cftchapnumwidth}{1.5em}
+% Obsah1/Obsah2 dle DOCX: text kapitoly od 22 pt, číslo podkapitoly na 11,05 pt a text od 44 pt (OBS-F02, OBS-F03)
+\setlength{\cftchapnumwidth}{22pt}
+\setlength{\cftsecindent}{11.05pt}
+\setlength{\cftsecnumwidth}{32.95pt}
 % Tečky i u kapitol dle DOCX (Obsah1: leader="dot")
-\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftchapleader}{\bfseries\cftdotfill{\cftdotsep}}  % tečky u kapitol tučně (OBS-F04)
 % Seznam obrázků a tabulek — bez odsazení dle DOCX (left=0)
 \setlength{\cftfigindent}{0pt}
 \setlength{\cfttabindent}{0pt}
@@ -145,10 +150,10 @@
 % Nadpis 2 v DOCX: 18 pt před, 6 pt za (kalibrováno proti exportu z Wordu)
 \titlespacing*{\section}{0pt}{10.5pt}{2pt}
 
-% Oddíly (Nadpis3) — bez hanging indent dle DOCX
-\titleformat{\subsection}[block]
+% Oddíly (Nadpis3) — text od 36 pt jako ve víceúrovňovém číslování DOCX (NA3-F02)
+\titleformat{\subsection}[hang]
   {\headingfont\TretiNadpis\bfseries}
-  {\thesubsection}{0.5em}{}
+  {\makebox[36pt][l]{\thesubsection}}{0pt}{}
 % Nadpis 3 v DOCX: 18 pt před, 6 pt za (kalibrováno proti exportu z Wordu)
 \titlespacing*{\subsection}{0pt}{11.2pt}{0.2pt}
 
@@ -171,7 +176,8 @@
 \clubpenalty=10000          % žádní sirotci (osamocený první řádek odstavce dole na stránce)
 \widowpenalty=10000         % žádné vdovy (osamocený poslední řádek odstavce nahoře na stránce)
 \displaywidowpenalty=10000
-\finalhyphendemerits=100000 % silně nedoporučit dělení posledního slova odstavce
+\finalhyphendemerits=10000000 % nedělit poslední slovo odstavce (DOK-F10)
+\tolerance=1000           % … i za cenu volnějšího řádku (při 200 nemá TeX jinou volbu)
 \brokenpenalty=10000        % nedělit slovo přes konec stránky
 % Minimální počet písmen před/za rozdělovníkem (ne „t-elefon“, ne „telef-on“).
 % Musí jít přes babel — ten při \begin{document} přepíše \lefthyphenmin/\righthyphenmin.
@@ -186,13 +192,17 @@
 \usepackage{caption}
 \DeclareCaptionFont{smallbf}{\small\bfseries}
 \captionsetup{labelsep=colon, font=smallbf, skip=6pt}
-\captionsetup[table]{position=top}
+% Mezery titulků dle Word PDF: pod obrázkem ≈ 10,6 pt od spodní hrany obrázku
+% k titulku (OBR-F05), nad tabulkou titulek těsně nad horní linkou (TAB-F08)
+\captionsetup[figure]{skip=10pt}
+\captionsetup[table]{position=top, skip=1pt}
 
 \counterwithout{figure}{chapter}
 \counterwithout{table}{chapter}
 \counterwithout{equation}{chapter}  % rovnice (1), (2)… jako ve Wordu, ne (2.1)
 % babel při \begin{document} nastaví „Obrázek“/„Tabulka“ — přepsat přes \captionsczech
 \addto\captionsczech{%
+  \renewcommand{\lstlistingname}{Výpis}%  % místo anglického „Listing“
   \renewcommand{\figurename}{Obr.}%
   \renewcommand{\tablename}{Tab.}%
 }

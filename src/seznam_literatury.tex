@@ -3,7 +3,8 @@
 
 % Styl „Seznam literatury“ z DOCX: řádkování 1,15, 6 pt za položkou, předsazení 357 twips = 17,85 pt
 \vspace{-3pt}  % hangparas přidává mezeru nad první položkou (kalibrováno proti exportu z Wordu)
-\sloppy
+\begingroup
+\raggedright\hyphenpenalty=10000\exhyphenpenalty=10000  % vlevo, bez dělení slov (BIB-F01)
 \begin{hangparas}{17.85pt}{1}
 \noindent BIERNÁTOVÁ, Olga a Jan SKŮPA. \textit{Bibliografické odkazy a citace dokumentů dle ČSN ISO 690 (01 0197) platné od 1. dubna 2011} [online]. Brno, 2011 [cit. 2020-10-29]. Dostupné z: \url{http://www.citace.com/soubory/csniso690-interpretace.pdf}
 
@@ -31,5 +32,6 @@
 
 \noindent ZBÍRAL, David. Jak napsat (a nepsat) odbornou práci: Zásady, návody, časté chyby. In: \textit{David Zbíral} [online]. 2018 [cit. 2022-04-25]. Dostupné z: \url{http://www.david-zbiral.cz/odborne-prace.htm}
 \end{hangparas}
+\endgroup
 
 \pagebreak

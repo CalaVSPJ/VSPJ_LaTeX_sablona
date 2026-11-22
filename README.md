@@ -26,6 +26,7 @@ PDF se uloží do `output/`.
 │   ├── conf/       ← nastavení šablony a proměnné (jméno, název práce…)
 │   └── img/        ← obrázky a grafy vložené do práce
 ├── Dokumenty/      ← oficiální vzor VŠPJ (neupravuj)
+├── docs/           ← pravidla závěrečné práce a dokumentace (viz docs/README.md)
 ├── Verze/          ← PDF generované při každém push
 └── output/         ← PDF z lokální kompilace
 ```

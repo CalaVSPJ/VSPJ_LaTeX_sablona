@@ -17,6 +17,10 @@ Původní Sablona.docx (verze 2022) byla stáhnuta [zde](https://www.google.com/
 
 Převod přes LibreOffice (`libreoffice --headless --convert-to pdf Sablona.docx`) se nedoporučuje: Calibri sice nahradí metricky shodným Carlito, ale pro Calibri Light (nadpisy) náhradu nemá a použije patkové písmo — nadpisy pak vypadají jinak a titulní strana se rozteče na dvě stránky.
 
+## Metodický pokyn k užívání AI
+
+`MP 8-2026 Metodický pokyn k užívání AI na VŠPJ.pdf` — Metodický pokyn k užívání generativní AI na VŠPJ, MP č. 8/2026 (platný od 2. 10. 2026). Stanoví, v jakém rozsahu lze AI při studiu a při psaní závěrečné práce používat a jak její využití deklarovat. Jak se týká tohoto repozitáře, popisuje [docs/README.md](../docs/README.md).
+
 ## ❗Důležité❗
 
 Bohužel nejsem si vědom systematického přístupu při sdílení těchto a podobných dokumentů. Bylo by vhodné, kdyby existoval endpoint na VŠPJ, ze kterého by vždy, například příkazem `curl` bylo možno stáhnout poslední verzi šablony, případně jiných relevantních dokumentů.

@@ -1,18 +1,25 @@
 % Prohlášení dle DOCX: začíná nahoře, mezi odstavci 9 pt (after=180) — jen v této skupině
 \begingroup
 \setlength{\parskip}{9pt}
+% Tvary slova podle typu práce (rozbalovací pole v DOCX): bakalářská / diplomová
+\ifdefstring{\varThesisType}{Diplomová práce}
+  {\def\TypN{diplomová}\def\TypA{diplomovou}\def\TypG{diplomové}}
+  {\ifdefstring{\varThesisType}{Bakalářská práce}{}
+     {\PackageWarningNoLine{prohlaseni}{Neznámý typ práce \varThesisType; prohlášení použije tvary 'bakalářská'}}%
+   \def\TypN{bakalářská}\def\TypA{bakalářskou}\def\TypG{bakalářské}}
 
-Prohlašuji, že předložená \varThesisType\ je původní a zpracoval/a jsem ji samostatně. Prohlašuji, že citace použitých pramenů je úplná, že jsem v práci neporušil/a autorská práva (ve smyslu zákona č. 121/2000 Sb., o právu autorském, o právech souvisejících s právem autorským a o změně některých zákonů, v platném znění, dále též „\textbf{AZ}“). 
+Prohlašuji, že předložená \TypN\ práce je původní a zpracoval/a jsem ji samostatně. Prohlašuji, že citace použitých pramenů je úplná, že jsem v práci neporušil/a autorská práva (ve smyslu zákona č. 121/2000 Sb., o právu autorském, o právech souvisejících s právem autorským a o změně některých zákonů, v platném znění, dále též „\textbf{AZ}“). 
 
-Byl/a jsem seznámen/a s tím, že na mou \varThesisType\ se plně vztahuje \textbf{AZ}, zejména § 60 (školní dílo).
+Byl/a jsem seznámen/a s tím, že na mou \TypA\ práci se plně vztahuje \textbf{AZ}, zejména § 60 (školní dílo).
 
 Podle § 47b zákona o vysokých školách souhlasím se zveřejněním své práce podle Směrnice pro vedení, vypracování a zveřejňování závěrečných prací na VŠPJ, a to bez ohledu na výsledek obhajoby.
 
-Beru na vědomí, že VŠPJ má právo na uzavření licenční smlouvy o užití mé \varThesisType\ a prohlašuji, že \textbf{\addfontfeature{LetterSpace=22.7}souhlasím}% proloženo 2,5 pt jako v DOCX s případným užitím mé \varThesisType\ (prodej, zapůjčení apod.).
+% „souhlasím“ tučně a proložené 2,5 pt jako v DOCX
+Beru na vědomí, že VŠPJ má právo na uzavření licenční smlouvy o užití mé \TypG\ práce a prohlašuji, že \textbf{\addfontfeature{LetterSpace=22.7}souhlasím}\ s případným užitím mé \TypG\ práce (prodej, zapůjčení apod.).
 
-Jsem si vědom/a toho, že užít své \varThesisType\ či poskytnout licenci k jejímu využití mohu jen se souhlasem VŠPJ, která má právo ode mě požadovat přiměřený příspěvek na úhradu nákladů, vynaložených vysokou školou na vytvoření díla (až do jejich skutečné výše), z výdělku dosaženého v souvislosti s užitím díla či poskytnutím licence.
+Jsem si vědom/a toho, že užít své \TypG\ práce či poskytnout licenci k jejímu využití mohu jen se souhlasem VŠPJ, která má právo ode mě požadovat přiměřený příspěvek na úhradu nákladů, vynaložených vysokou školou na vytvoření díla (až do jejich skutečné výše), z výdělku dosaženého v souvislosti s užitím díla či poskytnutím licence.
 
-V \varCity\ dne \DTMtoday
+V Jihlavě dne \DTMtoday
 
 \vspace{109.5pt}  % 4 prázdné odstavce jako v DOCX (kalibrováno proti exportu z Wordu)
 
